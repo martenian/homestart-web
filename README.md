@@ -2,10 +2,13 @@
 
 Static site generated with **[Eleventy](https://www.11ty.dev/)** for deployment on **Cloudflare Pages**.
 
+**Companion iOS app repo:** [github.com/martenian/homestart-ios](https://github.com/martenian/homestart-ios)
+
 ## Local development
 
 ```bash
-cd website
+git clone https://github.com/martenian/homestart-web.git
+cd homestart-web
 npm install
 npm run serve
 ```
@@ -18,13 +21,13 @@ Open the URL Eleventy prints (usually `http://localhost:8080`).
 npm run build
 ```
 
-Output: **`website/_site/`**
+Output: **`_site/`** (repository root)
 
 ## Cloudflare Pages
 
 | Setting | Value |
 |--------|--------|
-| **Root directory** | `website` (if repo is monorepo) or repository root if this folder is its own repo |
+| **Root directory** | Repository root (this repo is standalone) |
 | **Build command** | `npm run build` |
 | **Build output directory** | `_site` |
 
