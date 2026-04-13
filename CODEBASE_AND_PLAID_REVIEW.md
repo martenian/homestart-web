@@ -110,5 +110,5 @@ People **planning to buy a home** who want structure, education, and a realistic
 
 ## Related files in repo
 
-- iOS: `HomeStartApp/Services/PlaidService.swift`, `PlaidLinkManager.swift`, `FirestoreDataService.swift`, `AuthService.swift`, `Views/LinkedAccountsViews/`, `ContentView.swift`
-- Marketing site: `website/src/`
+- iOS (**[homestart-ios](https://github.com/martenian/homestart-ios)**): `HomeStartApp/Services/PlaidService.swift`, `PlaidLinkManager.swift`, `FirestoreDataService.swift`, `AuthService.swift`, `Views/LinkedAccountsViews/`, `ContentView.swift` (paths are under the Xcode target folder `HomeStartApp/`)
+- Marketing site: this repo (`src/`)
