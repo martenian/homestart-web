@@ -1,0 +1,49 @@
+---
+layout: layout.njk
+title: "Security overview"
+description: "Security practices for HomeStart — high-level summary for users and reviewers."
+permalink: /security-overview/
+---
+
+<header class="page-header container">
+  <h1>Security overview</h1>
+  <p class="lead">High-level summary. This is not a certification or audit report.</p>
+</header>
+
+<div class="container prose section section--tight">
+  <div class="callout">
+    Complete this page with your actual controls (SOC reports, pentest cadence, bug bounty, DPO). Plaid and enterprise customers often expect specificity.
+  </div>
+
+  <h2>Product surface</h2>
+  <p>{{ site.name }} is a consumer iOS application backed by <strong>Firebase Authentication</strong> and <strong>Cloud Firestore</strong>. Optional bank linking uses <strong>Plaid Link</strong> on device with <strong>server-side token exchange</strong> implemented in <strong>Firebase Cloud Functions</strong> <em>[confirm project name and region]</em>.</p>
+
+  <h2>Authentication &amp; session</h2>
+  <ul>
+    <li>Primary auth via Firebase (email/password and optional OAuth providers as enabled).</li>
+    <li>Optional <strong>biometric re-lock</strong> on supported devices to reduce casual access on a shared phone.</li>
+    <li>API calls from the app to your Cloud Functions carry a <strong>Firebase ID token</strong> in the <code>Authorization</code> header (see iOS <code>PlaidService</code>).</li>
+  </ul>
+
+  <h2>Data in transit &amp; at rest</h2>
+  <ul>
+    <li>TLS for app ↔ Firebase / HTTPS endpoints.</li>
+    <li>Firestore security: <em>[state Firestore rules strategy—e.g., user-scoped reads/writes only; cite internal doc]</em>.</li>
+    <li>Plaid access tokens: <em>[confirm whether stored only server-side, encrypted at rest, rotation—must match implementation]</em>.</li>
+  </ul>
+
+  <h2>Least privilege</h2>
+  <p>Cloud Functions should use <strong>least-privilege service accounts</strong> and avoid logging full tokens or PII <em>[verify logging redaction]</em>.</p>
+
+  <h2>Device &amp; user responsibilities</h2>
+  <ul>
+    <li>Keep iOS updated; use device passcode.</li>
+    <li>Do not jailbreak or sideload modified binaries if you handle sensitive financial planning data.</li>
+    <li>Report suspected unauthorized access to {{ site.supportEmail }}.</li>
+  </ul>
+
+  <h2>Vulnerability reporting</h2>
+  <p><em>[Add security@ email or HackerOne / bug bounty policy.]</em></p>
+
+  <p><a href="/privacy-policy/">Privacy Policy →</a></p>
+</div>

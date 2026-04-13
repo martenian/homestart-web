@@ -1,0 +1,109 @@
+---
+layout: layout.njk
+title: ""
+description: "HomeStart helps you plan and save toward buying a home. Optional bank linking via Plaid keeps your home fund grounded in real balances—not guesswork."
+bodyClass: page-home
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="badge">Homebuyer preparation</p>
+      <h1>Prepare to buy a home with a plan you can actually follow.</h1>
+      <p class="lead">{{ site.name }} helps first-time and early-stage buyers build savings, stress-test affordability, and move through a guided roadmap—not a pile of disconnected calculators.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="/how-it-works/">See how it works</a>
+        <a class="btn btn--ghost" href="/why-link-accounts/">Why link accounts</a>
+      </div>
+      <p class="muted" style="margin-top:1.5rem;">Not a mortgage lender, not a home listings app. Planning and education only.</p>
+    </div>
+    <aside class="hero-card" aria-label="What the app focuses on">
+      <h3>In the app today</h3>
+      <ul class="hero-list">
+        <li><span>Roadmap &amp; milestones</span></li>
+        <li><span>Savings &amp; cash-to-close</span></li>
+        <li><span>Affordability signals</span></li>
+        <li><span>Optional Plaid linking</span></li>
+        <li><span>Manual home fund entries</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-heading">
+      <h2>How it works</h2>
+      <p class="lead">You start with your real situation—savings, income, rent, debts—and {{ site.name }} helps you connect that to a home target, timeline, and the full cash picture (down payment, closing, reserves, and moving).</p>
+    </div>
+    <ol class="steps">
+      <li><strong>Create your account</strong> and sign in securely. The iOS app supports email sign-in and other providers configured in the app.</li>
+      <li><strong>Set your foundation</strong>—what you’ve saved, what you can save monthly, and how a future housing payment might fit next to rent and debts.</li>
+      <li><strong>Shape your target</strong> with a draft home price or a monthly housing budget, then refine with taxes, insurance, and (when applicable) planning estimates like mortgage insurance below 20% down.</li>
+      <li><strong>Optionally link accounts</strong> through Plaid so counted balances stay close to reality, or add manual “home fund” amounts if you prefer not to link.</li>
+      <li><strong>Follow the roadmap</strong> for bite-sized education and the next best preparation step—without turning everything into one giant form.</li>
+    </ol>
+    <p class="muted" style="margin-top:1.5rem;">Features vary by app version; this page reflects the current product direction in the shipped app.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What you can plan for</h2>
+      <p class="lead">The planner is built around the cash and monthly payment reality of buying—not just a single “down payment” number.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Cash-to-close picture</h3>
+        <p class="muted">Down payment, closing costs, post-close reserves, and moving/setup budget roll into a total cash target so savings goals match what closing actually tends to require.</p>
+      </article>
+      <article class="card">
+        <h3>Monthly housing estimate</h3>
+        <p class="muted">Principal and interest plus taxes and insurance—and, when your down payment assumption is under 20%, an illustrative conventional-style PMI estimate so monthly totals stay honest for planning.</p>
+      </article>
+      <article class="card">
+        <h3>Home fund allocation</h3>
+        <p class="muted">Linked or manual funds can be tagged toward down payment, closing, reserves, or general home savings—including split allocations when one account serves more than one purpose.</p>
+      </article>
+      <article class="card">
+        <h3>Roadmap &amp; learning</h3>
+        <p class="muted">Stages break the journey into milestones and modules so preparation, education, and inputs stay tied together instead of scattered across screens.</p>
+      </article>
+      <article class="card">
+        <h3>Market context (where enabled)</h3>
+        <p class="muted">The app can incorporate housing-market and benchmark context to help you sanity-check a target—not to replace professional advice or live lender pricing.</p>
+      </article>
+      <article class="card">
+        <h3>Optional rate context</h3>
+        <p class="muted">When a data key is configured, national mortgage survey averages (via FRED) can inform exploration screens. This is context only—not a rate lock or lender offer.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Security &amp; trust</h2>
+      <p class="lead">We describe only what the app is built to do today—no invented certifications or guarantees.</p>
+    </div>
+    <div class="trust-strip">
+      <span><strong>Sign-in:</strong> Firebase Authentication; optional device biometrics for returning sessions.</span>
+      <span><strong>Linking:</strong> Plaid Link (industry-standard bank connection flow).</span>
+      <span><strong>Storage:</strong> Plan and linked metadata stored under your user account in Firebase services.</span>
+    </div>
+    <p style="margin-top:1.25rem;"><a class="btn btn--ghost" href="/security-overview/">Read security overview</a>
+      <a class="btn btn--ghost" href="/privacy-policy/">Privacy Policy</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Questions before you link accounts?</h2>
+      <p>Read why we ask for connections, what Plaid sees, and how to contact us—then decide what you’re comfortable sharing.</p>
+      <a class="btn btn--primary" href="/faq/">Read the FAQ</a>
+    </div>
+  </div>
+</section>

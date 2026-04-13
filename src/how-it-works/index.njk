@@ -1,0 +1,34 @@
+---
+layout: layout.njk
+title: "How it works"
+description: "How HomeStart guides savings, planning, and optional Plaid account linking for homebuyers."
+permalink: /how-it-works/
+---
+
+<header class="page-header container">
+  <h1>How HomeStart works</h1>
+  <p class="lead">The app is organized around preparation: your numbers, your timeline, and a roadmap that breaks the journey into smaller steps.</p>
+</header>
+
+<div class="container prose section section--tight">
+  <h2>1. Account &amp; profile</h2>
+  <p>You create an account and complete lightweight planning onboarding (for example, location context) before the main dashboard. Authentication is handled with <strong>Firebase</strong>; the app may offer <strong>email/password</strong>, <strong>Google Sign-In</strong>, <strong>Facebook Login</strong>, and optional <strong>Face ID / Touch ID</strong> for returning sessions—depending on what is enabled in your build.</p>
+
+  <h2>2. Dashboard</h2>
+  <p>The home experience surfaces <strong>Roadmap</strong>, a financial <strong>snapshot</strong>, your <strong>plan</strong>, <strong>accounts</strong> (linked and manual home fund), and <strong>next steps</strong> style guidance. You can open the full planner or the full roadmap when you want to go deeper.</p>
+
+  <h2>3. Planner (savings &amp; affordability)</h2>
+  <p>The planner lets you model <strong>target home price</strong> or a <strong>monthly housing budget</strong>, <strong>down payment</strong>, loan term and rate assumptions, <strong>taxes and insurance</strong>, <strong>closing cost rate</strong>, <strong>reserve months</strong>, and <strong>moving/setup</strong> cash. Derived totals feed <strong>cash-to-close targets</strong>, <strong>estimated monthly housing payment</strong> (including an illustrative PMI-style estimate when down payment is under 20%), and <strong>debt-to-income style signals</strong> for planning—not underwriting.</p>
+
+  <h2>4. Linked &amp; manual home fund</h2>
+  <p><strong>Optional:</strong> connect banks through <strong>Plaid Link</strong>. After linking, you choose which accounts count toward your goal and how balances map to <strong>down payment</strong>, <strong>closing costs</strong>, <strong>reserves</strong>, or <strong>general home savings</strong>—including split percentages. If you prefer not to link, you can add <strong>manual funding sources</strong> instead.</p>
+
+  <h2>5. Roadmap</h2>
+  <p>Stages group <strong>milestones</strong> and <strong>learning content</strong>. Tapping a milestone can open a <strong>focused slice</strong> of the planner so you are not dropped into one overwhelming form.</p>
+
+  <div class="callout">
+    <strong>Not offered in the app:</strong> mortgage applications, credit decisions, live lender rate locks, or home listings. {{ site.name }} is for education and preparation.
+  </div>
+
+  <p><a href="/">← Back to home</a></p>
+</div>

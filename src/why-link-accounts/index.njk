@@ -1,0 +1,40 @@
+---
+layout: layout.njk
+title: "Why link accounts"
+description: "Why HomeStart offers optional Plaid bank linking and what it is used for."
+permalink: /why-link-accounts/
+---
+
+<header class="page-header container">
+  <h1>Why link your accounts</h1>
+  <p class="lead">Linking is <strong>optional</strong>. It exists so your “home fund” in the app can stay aligned with balances you already hold—without retyping numbers every week.</p>
+</header>
+
+<div class="container prose section section--tight">
+  <h2>What linking is for</h2>
+  <p>In the {{ site.name }} iOS app, Plaid is used to:</p>
+  <ul>
+    <li>Let you <strong>securely connect</strong> eligible financial institutions through <strong>Plaid Link</strong> (the standard Plaid consumer flow).</li>
+    <li><strong>Refresh account and balance information</strong> so totals feeding your plan reflect recent data (subject to institution availability and Plaid).</li>
+    <li>Support your own <strong>allocation choices</strong>—which accounts count and how much of each balance is treated as down payment, closing, reserves, or general home savings.</li>
+  </ul>
+
+  <h2>What linking is not for</h2>
+  <ul>
+    <li>We do <strong>not</strong> use Plaid to apply for loans or make credit decisions inside the app.</li>
+    <li>We do <strong>not</strong> sell your data to advertisers for unrelated targeting (describe any exceptions accurately after legal review).</li>
+    <li>The app is <strong>not</strong> a bank and does not move money on your behalf through Plaid.</li>
+  </ul>
+
+  <h2>How the connection works (technical)</h2>
+  <p>After you sign in with Firebase, the app requests a <strong>link token</strong> from {{ site.name }}’s backend (Firebase Cloud Functions). That starts Plaid Link on device. When you complete Link, a <strong>public token</strong> is exchanged server-side; institution and account metadata and balances needed for the feature are stored under <strong>your user ID in Firestore</strong> so the app can show and refresh your home fund. <em>[Confirm retention and token storage with your backend implementation and reflect accurately in the Privacy Policy.]</em></p>
+
+  <h2>If you choose not to link</h2>
+  <p>You can still use {{ site.name }} with <strong>manual funding entries</strong> and typed-in savings amounts. Linking only automates balance readouts you would otherwise maintain yourself.</p>
+
+  <div class="callout">
+    <strong>Plaid’s role:</strong> Plaid provides the connection technology. Their privacy practices apply to how they handle credentials and data in the Link flow. See Plaid’s consumer disclosure and our <a href="/privacy-policy/">Privacy Policy</a> for how {{ site.name }} uses data received through Plaid.
+  </div>
+
+  <p><a href="/security-privacy/">Security &amp; privacy →</a> &nbsp;·&nbsp; <a href="/faq/">FAQ →</a></p>
+</div>

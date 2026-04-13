@@ -1,0 +1,100 @@
+---
+layout: layout.njk
+title: "Privacy Policy"
+description: "HomeStart Privacy Policy — data practices including Plaid and Firebase."
+permalink: /privacy-policy/
+---
+
+<header class="page-header container">
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: {{ site.updated }} · <strong>Draft — requires legal counsel review before reliance.</strong></p>
+</header>
+
+<div class="container prose section section--tight">
+  <div class="callout">
+    This is a working draft aligned to the current iOS app architecture (Firebase Auth, Firestore, Plaid Link, optional third-party sign-in). <strong>Have it reviewed by qualified counsel</strong>; replace all bracketed placeholders.
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p><strong>Controller:</strong> {{ site.companyLegalName }}, {{ site.address }} (“<strong>{{ site.name }}</strong>,” “we,” “us”).</p>
+  <p><strong>Contact:</strong> {{ site.supportEmail }}</p>
+
+  <h2>2. Scope</h2>
+  <p>This Policy describes how we collect, use, store, and share information when you use the {{ site.name }} mobile application and related websites (the “<strong>Services</strong>”).</p>
+
+  <h2>3. Information we collect</h2>
+  <h3>3.1 You provide</h3>
+  <ul>
+    <li><strong>Account data:</strong> email address and authentication credentials (via Firebase Authentication). If enabled, profile data from <strong>Google</strong> or <strong>Facebook</strong> sign-in as permitted by those providers.</li>
+    <li><strong>Planning inputs:</strong> home price targets, budget assumptions, income and debt information you enter, savings rates, timeline choices, credit/readiness self-assessments, document-readiness checklists, and similar planning fields stored with your savings plan.</li>
+    <li><strong>Planning profile:</strong> information collected during onboarding (e.g., desired location).</li>
+    <li><strong>Manual funding sources:</strong> names and amounts you enter when not using bank linking.</li>
+  </ul>
+
+  <h3>3.2 From financial account linking (Plaid)</h3>
+  <p>If you choose to connect accounts, <strong>Plaid Inc.</strong> collects credentials and communicates with your financial institution. We receive from Plaid (subject to your connection and Plaid’s terms) data such as:</p>
+  <ul>
+    <li>Institution identifiers, names, branding metadata;</li>
+    <li>Account identifiers, names, types;</li>
+    <li>Balance and available amount fields used to display and refresh your home fund;</li>
+    <li>Item identifiers needed to maintain the connection.</li>
+  </ul>
+  <p><em>[Confirm against your Plaid products and Link token configuration; list only what you actually receive.]</em></p>
+
+  <h3>3.3 Automatically</h3>
+  <ul>
+    <li><strong>Device/app diagnostics:</strong> may be collected by Firebase or analytics SDKs if enabled in your build <em>[list SDKs actually shipped]</em>.</li>
+    <li><strong>Push notification tokens</strong> if you opt in to reminders <em>[describe GuidanceService / notification behavior]</em>.</li>
+  </ul>
+
+  <h3>3.4 Optional market data APIs</h3>
+  <p>If configured, the app may call third-party APIs (for example, <strong>U.S. Census</strong> or <strong>FRED</strong> for mortgage survey context). Those requests typically do not include your bank credentials; they may include coarse location or query strings derived from your planning inputs. <em>[Describe actual endpoints.]</em></p>
+
+  <h2>4. How we use information</h2>
+  <ul>
+    <li>Operate and improve the Services (display plans, roadmap progress, dashboards).</li>
+    <li>Compute planning estimates (cash-to-close, monthly payment estimates, readiness-style summaries)—<strong>for education only, not underwriting</strong>.</li>
+    <li>Maintain linked account data and refresh balances.</li>
+    <li>Authenticate you and secure accounts (including optional biometrics on device).</li>
+    <li>Send optional notifications you consent to.</li>
+    <li>Comply with law and enforce our Terms.</li>
+  </ul>
+  <p>We do <strong>not</strong> use Plaid data to advertise unrelated third-party products <em>[adjust if you add features]</em>.</p>
+
+  <h2>5. Legal bases (EEA/UK users, if applicable)</h2>
+  <p><em>[Add if you market in those regions: contract, legitimate interests, consent for optional linking/notifications.]</em></p>
+
+  <h2>6. Sharing</h2>
+  <ul>
+    <li><strong>Service providers</strong> who process data on our behalf, including <strong>Google Firebase / Firestore</strong>, <strong>Plaid</strong>, and <strong>cloud function</strong> hosting for Plaid token exchange <em>[name hosting/GCP project entity]</em>.</li>
+    <li><strong>Sign-in providers</strong> (Google, Meta/Facebook) when you choose those options.</li>
+    <li><strong>Authorities</strong> if required by law.</li>
+  </ul>
+  <p>We do not sell personal information as defined under U.S. state “sale” laws <em>[verify]</em>.</p>
+
+  <h2>7. Retention</h2>
+  <p>We retain account and plan data while your account is active. <em>[Specify deletion timelines, Plaid item retention, and backup cycles after counsel review.]</em></p>
+
+  <h2>8. Security</h2>
+  <p>We use industry-standard measures appropriate to a mobile consumer app, including encrypted transport (HTTPS), secured cloud infrastructure, and server-side handling of Plaid secrets. See the <a href="/security-overview/">Security overview</a>. <strong>No method is 100% secure.</strong></p>
+
+  <h2>9. Your choices</h2>
+  <ul>
+    <li>Access/update certain data in the app.</li>
+    <li>Disconnect linked institutions in-app <em>[describe]</em>.</li>
+    <li>Request account deletion <em>[describe process]</em>.</li>
+    <li>Opt out of non-essential notifications in device settings / app settings.</li>
+  </ul>
+
+  <h2>10. Children</h2>
+  <p>The Services are not directed to children under 13 (or 16 where required). <em>[Adjust age.]</em></p>
+
+  <h2>11. International transfers</h2>
+  <p>Data may be processed in the United States or other countries where providers operate. <em>[Add SCCs or mechanisms if needed.]</em></p>
+
+  <h2>12. Changes</h2>
+  <p>We will post updates to this page and revise the “Last updated” date.</p>
+
+  <h2>13. Contact</h2>
+  <p>{{ site.supportEmail }}</p>
+</div>

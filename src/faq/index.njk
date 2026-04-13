@@ -1,0 +1,42 @@
+---
+layout: layout.njk
+title: "FAQ"
+description: "Frequently asked questions about HomeStart, Plaid, and your data."
+permalink: /faq/
+---
+
+<header class="page-header container">
+  <h1>Frequently asked questions</h1>
+  <p class="lead">Focused on account linking and data—common questions for Plaid production review and for users.</p>
+</header>
+
+<div class="container section section--tight" style="max-width:44rem">
+  <article class="faq-item">
+    <h3>Do I have to link my bank to use HomeStart?</h3>
+    <p class="muted">No. Linking is optional. You can enter manual funding amounts and still use the planner, roadmap, and affordability-style tools.</p>
+  </article>
+  <article class="faq-item">
+    <h3>Why does HomeStart use Plaid?</h3>
+    <p class="muted">Plaid provides the industry-standard Link flow to connect eligible institutions and keep balances updated for your “home fund” totals—so the app reflects money you already have without constant manual updates.</p>
+  </article>
+  <article class="faq-item">
+    <h3>Does HomeStart see my bank username and password?</h3>
+    <p class="muted">You sign in to your bank through Plaid’s interface. {{ site.name }} does not operate a screen that collects your bank password for Plaid connections. <em>[Align wording with your Plaid product settings and legal review.]</em></p>
+  </article>
+  <article class="faq-item">
+    <h3>What data is stored after I link?</h3>
+    <p class="muted">The app stores institution and account identifiers, balances, and your allocation choices (for example, how much of an account counts toward down payment vs. reserves) under your Firebase user account in Firestore. See the <a href="/privacy-policy/">Privacy Policy</a> for categories and purposes.</p>
+  </article>
+  <article class="faq-item">
+    <h3>Can I disconnect a bank?</h3>
+    <p class="muted">The app includes flows to remove linked institutions and accounts from your {{ site.name }} profile. <em>[If you add a self-service “disconnect” that calls Plaid’s item removal API server-side, describe it here once implemented.]</em></p>
+  </article>
+  <article class="faq-item">
+    <h3>Is HomeStart a lender?</h3>
+    <p class="muted">No. We do not originate mortgages, lock rates, or underwrite loans. The app is for planning and education.</p>
+  </article>
+  <article class="faq-item">
+    <h3>Who can I contact about privacy or security?</h3>
+    <p class="muted">Use the email on our <a href="/contact/">Contact</a> page. Replace the placeholder address in <code>src/_data/site.json</code> before launch.</p>
+  </article>
+</div>
