@@ -1208,25 +1208,51 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem 1.25rem;
-  row-gap: 0.85rem;
+  gap: 1.25rem 1.75rem;
+  row-gap: 1rem;
 }
 
 @media (min-width: 640px) {
   .cred-platforms {
-    gap: 0.85rem 1.75rem;
+    gap: 1.35rem 2.25rem;
     margin-top: 2.25rem;
   }
 }
 
-.cred-platform {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: #94a3b8;
-  opacity: 0.9;
-  filter: grayscale(1);
-  user-select: none;
+.cred-logo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   pointer-events: none;
+  user-select: none;
+}
+
+.cred-logo-img {
+  display: block;
+  height: 22px;
+  width: auto;
+  max-width: min(26vw, 112px);
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.88;
+  filter: grayscale(1) contrast(0.92);
+}
+
+.cred-logo-img--word {
+  height: 18px;
+  max-width: min(32vw, 130px);
+}
+
+@media (min-width: 640px) {
+  .cred-logo-img {
+    height: 24px;
+    max-width: 120px;
+  }
+
+  .cred-logo-img--word {
+    height: 20px;
+    max-width: 140px;
+  }
 }
