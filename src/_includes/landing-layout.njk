@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
-  <meta name="description" content="{{ description | default('A calm planning app for first-time homebuyers. Savings, cash-to-close clarity, optional bank linking—not a lender.') }}">
+  <meta name="description" content="{{ description | default('HomeStart — early access for first-time buyers. Cash-to-close planning, savings tracking, and a calm roadmap. Not a lender. Optional bank linking.') }}">
   <link rel="icon" href="/images/favicon.png" type="image/png" sizes="120x120">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <meta property="og:image" content="{{ site.url }}/images/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   {{ content | safe }}
-  <script src="/js/hero-phone.js" defer></script>
+  <script src="/js/app-preview.js" defer></script>
   <script src="/js/waitlist.js" type="module"></script>
 </body>
 </html>
