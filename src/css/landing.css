@@ -94,31 +94,38 @@ body {
   gap: 1rem;
 }
 
-.logo {
+.logo-lockup {
   display: flex;
   align-items: center;
+  gap: 0.65rem;
   text-decoration: none;
+  color: var(--text);
   transition: opacity 0.15s;
 }
 
-.logo-img {
-  height: 28px;
-  width: auto;
-  max-width: min(160px, 42vw);
-  object-fit: contain;
-  object-position: left center;
-  display: block;
+.logo-lockup:hover {
+  opacity: 0.8;
+}
+
+.logo-lockup__mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo-lockup__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .logo-img {
-    height: 30px;
-    max-width: 180px;
+  .logo-lockup__title {
+    font-size: 1.25rem;
   }
-}
-
-.logo:hover {
-  opacity: 0.75;
 }
 
 .nav-links {
@@ -209,6 +216,15 @@ body {
   animation: fadeUp 0.7s var(--ease-out) both;
 }
 
+.hero-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.65rem;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -286,7 +302,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Mock device */
+/* Phone mock — splash GIF → app preview (see SplashScreen.swift + ContentView accounts card) */
 .hero-mock {
   animation: fadeUp 0.8s var(--ease-out) 0.1s both;
 }
@@ -301,40 +317,245 @@ body {
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
-.mock-screen {
+.mock-screen--animated {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 28px;
-  background: linear-gradient(165deg, #fafafa 0%, #fff 40%, #f4f4f5 100%);
+  overflow: hidden;
+  background: #fff;
+}
+
+.phone-layer {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  text-align: center;
-  gap: 0.75rem;
+  transition: opacity 0.55s var(--ease-out), visibility 0.55s;
 }
 
-.mock-app-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+.phone-layer--splash {
+  background: #fff;
+  z-index: 2;
 }
 
-.mock-label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.mock-wordmark {
-  height: 22px;
-  width: auto;
-  max-width: 85%;
+.phone-splash-gif {
+  width: 72%;
+  height: auto;
+  max-height: 55%;
   object-fit: contain;
+}
+
+.phone-layer--app {
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 10px 12px;
+  background: linear-gradient(180deg, #f2f6fb 0%, #e8eef6 45%, #f5f7fa 100%);
+  overflow: hidden;
+}
+
+.hero-mock.phone-mock--ready .phone-layer--splash {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero-mock.phone-mock--ready .phone-layer--app {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-mock.phone-mock--static .phone-layer--splash {
+  display: none;
+}
+
+.hero-mock.phone-mock--static .phone-layer--app {
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  visibility: visible;
+  min-height: 100%;
+}
+
+/* In-app–style preview */
+.app-preview {
+  width: 100%;
+  font-family: var(--font);
+  --app-ink: #222038;
+  --app-sub: #5e6b7a;
+  --app-navy: #162c4c;
+  --app-ocean: #2b70d6;
+  --app-teal: #1ba396;
+}
+
+.app-preview__status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  color: var(--app-ink);
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.app-preview__dots {
+  letter-spacing: 0.05em;
+  color: var(--app-sub);
+  font-size: 0.5rem;
+}
+
+.app-preview__tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.app-preview__tab {
+  font-size: 0.5rem;
+  font-weight: 600;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--app-sub);
+  white-space: nowrap;
+}
+
+.app-preview__tab--active {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--app-ink);
+  box-shadow: 0 1px 3px rgba(22, 44, 76, 0.12);
+}
+
+.app-preview__card {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 14px;
+  padding: 10px 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 14px rgba(22, 44, 76, 0.06);
+}
+
+.app-preview__card-head {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.app-preview__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(27, 163, 150, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--app-navy);
+  flex-shrink: 0;
+}
+
+.app-preview__kicker {
+  margin: 0;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(27, 163, 150, 0.95);
+}
+
+.app-preview__title {
+  margin: 2px 0 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--app-ink);
+  line-height: 1.25;
+}
+
+.app-preview__amount {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--app-navy);
+  line-height: 1.1;
+}
+
+.app-preview__caption {
+  margin: 2px 0 8px;
+  font-size: 0.5625rem;
+  color: var(--app-sub);
+  line-height: 1.35;
+}
+
+.app-preview__bar-wrap {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.app-preview__bar {
+  height: 100%;
+  width: var(--p, 50%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--app-teal), var(--app-ocean));
+}
+
+.app-preview__bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: var(--app-teal);
+  margin-bottom: 8px;
+}
+
+.app-preview__bar-labels span:last-child {
+  font-weight: 500;
+  color: var(--app-sub);
+}
+
+.app-preview__pills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.app-preview__pills span {
+  font-size: 0.5rem;
+  color: var(--app-sub);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 3px 6px;
+  border-radius: 8px;
+}
+
+.app-preview__pills strong {
+  color: var(--app-navy);
+}
+
+.app-preview__cta {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--app-ocean), rgba(22, 44, 76, 0.92));
+}
+
+.app-preview__hint {
+  margin: 8px 0 0;
+  font-size: 0.5rem;
+  color: var(--app-sub);
+  text-align: center;
+  opacity: 0.85;
 }
 
 /* Trust */
@@ -393,37 +614,65 @@ body {
 }
 
 .feature-card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: border-color 0.2s, box-shadow 0.2s var(--ease-out);
+  padding: 1.5rem 1.5rem 1.65rem;
+  transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.2s var(--ease-out);
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1ba396, #2b70d6);
+  opacity: 0;
+  transition: opacity 0.25s;
 }
 
 .feature-card:hover {
   border-color: #d4d4d4;
-  box-shadow: 0 12px 24px -8px var(--ring);
+  box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
 }
 
-.feature-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--bg);
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f8fafc, #f1f5f9);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
+  color: var(--text);
+  transition: transform 0.2s var(--ease-out), border-color 0.2s;
 }
 
-.feature-icon::after {
-  content: "";
-  display: block;
-  width: 18px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
+.feature-card:hover .feature-icon-wrap {
+  transform: scale(1.04);
+  border-color: #cbd5e1;
+}
+
+.feature-icon-wrap--accent {
+  background: linear-gradient(145deg, rgba(27, 163, 150, 0.12), rgba(43, 112, 214, 0.1));
+  border-color: rgba(43, 112, 214, 0.2);
+  color: #162c4c;
+}
+
+.feature-svg {
+  width: 24px;
+  height: 24px;
 }
 
 .feature-card h3 {

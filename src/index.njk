@@ -4,6 +4,8 @@ title: ""
 description: "HomeStart helps first-time buyers plan savings and cash-to-close—optional bank linking, not a lender. Join the waitlist."
 ---
 
+{% from "icons-features.njk" import icon %}
+
 <header class="site-header" id="site-header" data-header>
   <div class="header-inner">
     {% include "brand-logo.njk" %}
@@ -21,20 +23,60 @@ description: "HomeStart helps first-time buyers plan savings and cash-to-close�
   <section class="section hero" aria-labelledby="hero-heading">
     <div class="hero-grid">
       <div class="hero-copy">
+        <p class="hero-eyebrow">{{ site.name }}</p>
         <h1 id="hero-heading">Your home plan, finally in one place.</h1>
-        <p class="hero-sub">HomeStart is a planning app for first-time buyers—savings targets, cash-to-close clarity, and a guided path. Not a lender. Not listings.</p>
+        <p class="hero-sub">A calm planning app for first-time buyers—savings, full cash-to-close clarity, and a guided roadmap. Not a lender. Not listings.</p>
         <div class="hero-actions">
           <a class="btn btn--primary" href="#waitlist">Join the waitlist</a>
           <a class="btn btn--secondary" href="#how-it-works">Learn more</a>
         </div>
-        <p class="hero-note">Optional bank linking via Plaid to keep balances in sync—only if you want it.</p>
+        <p class="hero-note">Optional bank linking via Plaid—only if you want real balances in the picture.</p>
       </div>
-      <div class="hero-mock" aria-hidden="true">
+      <div class="hero-mock phone-mock--loading" data-phone-mock aria-hidden="true">
         <div class="mock-frame">
-          <div class="mock-screen">
-            <img class="mock-app-icon" src="/images/apple-touch-icon.png" alt="" decoding="async">
-            <span class="mock-label">Coming to App Store</span>
-            <img class="mock-wordmark" src="/images/logo.png" alt="" decoding="async">
+          <div class="mock-screen mock-screen--animated">
+            <div class="phone-layer phone-layer--splash">
+              <img class="phone-splash-gif" src="/images/splash.gif" alt="" width="200" height="200" decoding="async">
+            </div>
+            <div class="phone-layer phone-layer--app">
+              <div class="app-preview">
+                <div class="app-preview__status">
+                  <span>9:41</span>
+                  <span class="app-preview__dots">●●●●</span>
+                </div>
+                <div class="app-preview__tabs" role="presentation">
+                  <span class="app-preview__tab">Roadmap</span>
+                  <span class="app-preview__tab app-preview__tab--active">Plan</span>
+                  <span class="app-preview__tab">Accounts</span>
+                </div>
+                <div class="app-preview__card">
+                  <div class="app-preview__card-head">
+                    <div class="app-preview__icon" aria-hidden="true">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                      <p class="app-preview__kicker">Linked home fund</p>
+                      <p class="app-preview__title">Your savings in one place</p>
+                    </div>
+                  </div>
+                  <p class="app-preview__amount">$47,200</p>
+                  <p class="app-preview__caption">Counted from linked accounts toward this goal</p>
+                  <div class="app-preview__bar-wrap">
+                    <div class="app-preview__bar" style="--p: 62%;"></div>
+                  </div>
+                  <div class="app-preview__bar-labels">
+                    <span>62% of full cash goal</span>
+                    <span>Goal $76k</span>
+                  </div>
+                  <div class="app-preview__pills">
+                    <span><strong>2</strong> Institutions</span>
+                    <span><strong>3</strong> Counting</span>
+                  </div>
+                  <div class="app-preview__cta">Manage home fund →</div>
+                </div>
+                <p class="app-preview__hint">Sample screen—inspired by the real dashboard.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,33 +103,33 @@ description: "HomeStart helps first-time buyers plan savings and cash-to-close�
 
   <section class="section" id="features" aria-labelledby="features-heading">
     <p class="section-label">Features</p>
-    <h2 id="features-heading">Everything you need to prepare</h2>
-    <p class="section-intro">Short, focused tools—so you always know what to do next.</p>
+    <h2 id="features-heading">Built to keep you moving</h2>
+    <p class="section-intro">Everything ties back to one goal: closing with confidence—without drowning in spreadsheets.</p>
     <div class="features-grid">
       <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true"></div>
-        <h3>Savings planning</h3>
-        <p>Set pace toward down payment, closing, reserves, and moving costs in one cash-to-close view.</p>
+        <div class="feature-icon-wrap" aria-hidden="true">{{ icon("savings") }}</div>
+        <h3>Smarter savings pace</h3>
+        <p>See what it takes to hit down payment, closing, reserves, and moving costs—then adjust your monthly plan as life changes.</p>
       </article>
       <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true"></div>
-        <h3>Cash-to-close guidance</h3>
-        <p>See how down payment, closing costs, reserves, and setup cash add up—not just the down payment.</p>
+        <div class="feature-icon-wrap" aria-hidden="true">{{ icon("cash") }}</div>
+        <h3>Full cash-to-close, not just “20% down”</h3>
+        <p>Most apps stop at down payment. HomeStart rolls in closing, post-close reserves, and setup cash so the target matches reality.</p>
       </article>
       <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true"></div>
-        <h3>Affordability planning</h3>
-        <p>Stress-test monthly housing next to income and debts—planning context, not underwriting.</p>
+        <div class="feature-icon-wrap" aria-hidden="true">{{ icon("afford") }}</div>
+        <h3>Affordability you can feel</h3>
+        <p>Map estimated housing next to rent, income, and debts—so you understand monthly fit before you fall in love with a price.</p>
       </article>
       <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true"></div>
-        <h3>Optional account linking</h3>
-        <p>Connect banks with Plaid to reflect real balances—or enter amounts manually.</p>
+        <div class="feature-icon-wrap feature-icon-wrap--accent" aria-hidden="true">{{ icon("link") }}</div>
+        <h3>Link banks—or don’t</h3>
+        <p>Optional Plaid keeps balances fresh; manual entries work too. You choose how much to connect.</p>
       </article>
       <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true"></div>
-        <h3>Guided roadmap</h3>
-        <p>Milestones and learning so preparation stays step-by-step, not overwhelming.</p>
+        <div class="feature-icon-wrap" aria-hidden="true">{{ icon("roadmap") }}</div>
+        <h3>Roadmap, not random tabs</h3>
+        <p>Milestones and bite-sized lessons so “what’s next?” is always clear—especially when you’re new to the process.</p>
       </article>
     </div>
   </section>

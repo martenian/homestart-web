@@ -81,6 +81,7 @@ Raster files in **`src/images/`** are copied from the iOS app’s asset catalog 
 | File | Source (iOS) |
 |------|----------------|
 | `logo.png` | `HomeStartApp/Resources/Assets.xcassets/Logo.imageset/Logo@3x.png` (sharpest; `@2x` also fine) |
+| `splash.gif` | `HomeStartApp/Resources/_media/Logo GIF_Fast.gif` (same as `SplashScreen` / `GIFView`) |
 | `apple-touch-icon.png` | `AppIcon.appiconset/icon_60pt@3x.png` |
 | `favicon.png` | `AppIcon.appiconset/icon_60pt@2x.png` |
 
