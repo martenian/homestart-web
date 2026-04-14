@@ -1,100 +1,112 @@
 ---
 layout: layout.njk
 title: "Privacy Policy"
-description: "HomeStart Privacy Policy — data practices including Plaid and Firebase."
+description: "How HomeStart collects, uses, and protects your information—including optional Plaid bank linking."
 permalink: /privacy-policy/
 ---
 
 <header class="page-header container">
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: {{ site.updated }} · <strong>Draft — requires legal counsel review before reliance.</strong></p>
+  <p class="muted">Last updated: {{ site.updated }}</p>
 </header>
 
 <div class="container prose section section--tight">
-  <div class="callout">
-    This is a working draft aligned to the current iOS app architecture (Firebase Auth, Firestore, Plaid Link, optional third-party sign-in). <strong>Have it reviewed by qualified counsel</strong>; replace all bracketed placeholders.
-  </div>
+  <p>This Privacy Policy describes how <strong>{{ site.companyLegalName }}</strong> (“<strong>{{ site.name }}</strong>,” “we,” “us,” “our”) handles information when you use our mobile application and related websites (the “<strong>Services</strong>”).</p>
+  <p>{{ site.name }} is a <strong>financial planning and education tool</strong> for people preparing to buy a home. We are <strong>not a lender</strong> and do not offer loans, credit decisions, or underwriting. Information and estimates in the app are <strong>for informational purposes only</strong> and are <strong>not financial, legal, or tax advice</strong>. You should consult qualified professionals for advice specific to your situation.</p>
+  <p>By using the Services, you agree to this Policy. If you do not agree, please do not use the Services.</p>
 
   <h2>1. Who we are</h2>
-  <p><strong>Controller:</strong> {{ site.companyLegalName }}, {{ site.address }} (“<strong>{{ site.name }}</strong>,” “we,” “us”).</p>
-  <p><strong>Contact:</strong> {{ site.supportEmail }}</p>
+  <p><strong>Data controller:</strong> {{ site.companyLegalName }}, {{ site.address }}.</p>
+  <p><strong>Contact (privacy questions):</strong> <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a></p>
+  <p><strong>Security reports:</strong> <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a> (see our <a href="/security-overview/">Security overview</a>).</p>
 
-  <h2>2. Scope</h2>
-  <p>This Policy describes how we collect, use, store, and share information when you use the {{ site.name }} mobile application and related websites (the “<strong>Services</strong>”).</p>
+  <h2>2. Information we collect</h2>
 
-  <h2>3. Information we collect</h2>
-  <h3>3.1 You provide</h3>
+  <h3>2.1 Information you provide</h3>
   <ul>
-    <li><strong>Account data:</strong> email address and authentication credentials (via Firebase Authentication). If enabled, profile data from <strong>Google</strong> or <strong>Facebook</strong> sign-in as permitted by those providers.</li>
-    <li><strong>Planning inputs:</strong> home price targets, budget assumptions, income and debt information you enter, savings rates, timeline choices, credit/readiness self-assessments, document-readiness checklists, and similar planning fields stored with your savings plan.</li>
-    <li><strong>Planning profile:</strong> information collected during onboarding (e.g., desired location).</li>
-    <li><strong>Manual funding sources:</strong> names and amounts you enter when not using bank linking.</li>
+    <li><strong>Account information.</strong> Email address and authentication information processed through <strong>Google Firebase Authentication</strong>. If you choose <strong>Google</strong> or <strong>Facebook (Meta)</strong> sign-in, we receive the profile and identifier information those providers share with us according to your settings and their policies.</li>
+    <li><strong>Planning information you enter.</strong> Information you add in the app to build your plan—for example, housing goals, budget assumptions, income and debt figures you choose to enter, savings targets, timelines, and similar fields stored with your plan. You decide how much detail to provide.</li>
+    <li><strong>Manual balances and labels.</strong> If you do not link a bank, you may enter account nicknames and amounts manually so the app can still show progress toward your goals.</li>
   </ul>
 
-  <h3>3.2 From financial account linking (Plaid)</h3>
-  <p>If you choose to connect accounts, <strong>Plaid Inc.</strong> collects credentials and communicates with your financial institution. We receive from Plaid (subject to your connection and Plaid’s terms) data such as:</p>
+  <h3>2.2 Information from optional bank linking (Plaid)</h3>
+  <p>If you <strong>choose</strong> to connect a financial institution, we use <strong>Plaid Inc.</strong> and its <strong>Plaid Link</strong> technology. <strong>Your financial institution login credentials are collected by Plaid, not by us.</strong> We do not store your bank password for that connection flow.</p>
+  <p>Subject to your authorization and Plaid’s terms, we may receive information such as:</p>
   <ul>
-    <li>Institution identifiers, names, branding metadata;</li>
-    <li>Account identifiers, names, types;</li>
-    <li>Balance and available amount fields used to display and refresh your home fund;</li>
-    <li>Item identifiers needed to maintain the connection.</li>
+    <li>Institution name and identifiers Plaid uses to identify the connection;</li>
+    <li>Account identifiers, names, and types for linked accounts;</li>
+    <li>Balance and available-funds information used to show savings progress and related planning views;</li>
+    <li>Technical identifiers Plaid provides so we can maintain or refresh the connection.</li>
   </ul>
-  <p><em>[Confirm against your Plaid products and Link token configuration; list only what you actually receive.]</em></p>
+  <p>The exact categories can depend on your institution and what you authorize. Plaid’s privacy notice explains its practices in more detail.</p>
+  <p>You may <strong>disconnect</strong> linked accounts at any time using the in-app controls for connected accounts or institution linking. Disconnecting stops new data from that connection from flowing to {{ site.name }}; we describe retention in Section 5.</p>
 
-  <h3>3.3 Automatically</h3>
+  <h3>2.3 Information collected automatically</h3>
   <ul>
-    <li><strong>Device/app diagnostics:</strong> may be collected by Firebase or analytics SDKs if enabled in your build <em>[list SDKs actually shipped]</em>.</li>
-    <li><strong>Push notification tokens</strong> if you opt in to reminders <em>[describe GuidanceService / notification behavior]</em>.</li>
-  </ul>
-
-  <h3>3.4 Optional market data APIs</h3>
-  <p>If configured, the app may call third-party APIs (for example, <strong>U.S. Census</strong> or <strong>FRED</strong> for mortgage survey context). Those requests typically do not include your bank credentials; they may include coarse location or query strings derived from your planning inputs. <em>[Describe actual endpoints.]</em></p>
-
-  <h2>4. How we use information</h2>
-  <ul>
-    <li>Operate and improve the Services (display plans, roadmap progress, dashboards).</li>
-    <li>Compute planning estimates (cash-to-close, monthly payment estimates, readiness-style summaries)—<strong>for education only, not underwriting</strong>.</li>
-    <li>Maintain linked account data and refresh balances.</li>
-    <li>Authenticate you and secure accounts (including optional biometrics on device).</li>
-    <li>Send optional notifications you consent to.</li>
-    <li>Comply with law and enforce our Terms.</li>
-  </ul>
-  <p>We do <strong>not</strong> use Plaid data to advertise unrelated third-party products <em>[adjust if you add features]</em>.</p>
-
-  <h2>5. Legal bases (EEA/UK users, if applicable)</h2>
-  <p><em>[Add if you market in those regions: contract, legitimate interests, consent for optional linking/notifications.]</em></p>
-
-  <h2>6. Sharing</h2>
-  <ul>
-    <li><strong>Service providers</strong> who process data on our behalf, including <strong>Google Firebase / Firestore</strong>, <strong>Plaid</strong>, and <strong>cloud function</strong> hosting for Plaid token exchange <em>[name hosting/GCP project entity]</em>.</li>
-    <li><strong>Sign-in providers</strong> (Google, Meta/Facebook) when you choose those options.</li>
-    <li><strong>Authorities</strong> if required by law.</li>
-  </ul>
-  <p>We do not sell personal information as defined under U.S. state “sale” laws <em>[verify]</em>.</p>
-
-  <h2>7. Retention</h2>
-  <p>We retain account and plan data while your account is active. <em>[Specify deletion timelines, Plaid item retention, and backup cycles after counsel review.]</em></p>
-
-  <h2>8. Security</h2>
-  <p>We use industry-standard measures appropriate to a mobile consumer app, including encrypted transport (HTTPS), secured cloud infrastructure, and server-side handling of Plaid secrets. See the <a href="/security-overview/">Security overview</a>. <strong>No method is 100% secure.</strong></p>
-
-  <h2>9. Your choices</h2>
-  <ul>
-    <li>Access/update certain data in the app.</li>
-    <li>Disconnect linked institutions in-app <em>[describe]</em>.</li>
-    <li>Request account deletion <em>[describe process]</em>.</li>
-    <li>Opt out of non-essential notifications in device settings / app settings.</li>
+    <li><strong>Service operations.</strong> When you use the Services, <strong>Google Firebase</strong> and related Google Cloud services may process technical information needed to run the app and backend—for example, device type, operating system version, app version, crash or diagnostic signals, and security-related logs. We use this to operate, secure, and improve the Services.</li>
+    <li><strong>Analytics.</strong> We do <strong>not</strong> use third-party advertising or cross-app tracking SDKs for behavioral ads. Any product analytics we enable are limited to understanding how the app is used and improving features.</li>
+    <li><strong>Notifications.</strong> If you opt in to push notifications, we process a <strong>device token</strong> so your device can receive messages you have agreed to. You can turn off notifications in your device or app settings.</li>
   </ul>
 
-  <h2>10. Children</h2>
-  <p>The Services are not directed to children under 13 (or 16 where required). <em>[Adjust age.]</em></p>
+  <h3>2.4 Other sources</h3>
+  <p>The app may request <strong>non-sensitive reference or market information</strong> from third-party data sources (for example, public economic or housing-related datasets) to show context in planning features. Those requests do not include your bank credentials. They may use parameters derived from general planning inputs (such as region-level preferences you have entered).</p>
 
-  <h2>11. International transfers</h2>
-  <p>Data may be processed in the United States or other countries where providers operate. <em>[Add SCCs or mechanisms if needed.]</em></p>
+  <h2>3. How we use information</h2>
+  <p>We use the information above to:</p>
+  <ul>
+    <li>Provide the Services: authenticate you, sync your plan, show savings and cash-to-close context, and run optional account linking;</li>
+    <li>Display <strong>illustrative</strong> estimates and readiness-style summaries based on what you enter or link—<strong>not</strong> for lending, credit decisions, or guarantees about buying a home;</li>
+    <li>Maintain security, prevent abuse, debug issues, and improve reliability;</li>
+    <li>Send optional communications you have requested (such as product updates or reminders, where available and permitted);</li>
+    <li>Comply with applicable law and enforce our <a href="/terms-of-service/">Terms of Service</a>.</li>
+  </ul>
+  <p>We do <strong>not</strong> sell your personal information as that term is commonly defined in U.S. state privacy laws, and we do <strong>not</strong> use Plaid data to advertise unrelated third-party financial products.</p>
 
-  <h2>12. Changes</h2>
-  <p>We will post updates to this page and revise the “Last updated” date.</p>
+  <h2>4. Sharing</h2>
+  <p>We share information only as needed to run the Services or as required by law:</p>
+  <ul>
+    <li><strong>Service providers</strong> who process data on our instructions, including <strong>Google</strong> (Firebase, Firestore, Cloud Functions, and related Google Cloud infrastructure), <strong>Plaid</strong> (for linking and related financial data), and <strong>Apple</strong> (for distributing the app and device-level services).</li>
+    <li><strong>Sign-in providers</strong> (<strong>Google</strong>, <strong>Meta/Facebook</strong>) when you choose those sign-in methods, as described in their policies.</li>
+    <li><strong>Authorities or others</strong> if we believe disclosure is required to comply with law, protect safety, or defend our rights.</li>
+  </ul>
+  <p>We may share <strong>aggregated or de-identified</strong> information that cannot reasonably identify you—for example, statistics about feature usage.</p>
 
-  <h2>13. Contact</h2>
-  <p>{{ site.supportEmail }}</p>
+  <h2>5. Data retention</h2>
+  <p>We keep your account and plan information while your account is active so the Services work as you expect.</p>
+  <p>If you <strong>delete your account</strong>, we will delete or de-identify your personal information within a reasonable period, <strong>typically within thirty (30) days</strong>, unless a longer period is required by law, dispute resolution, or backup and disaster-recovery systems (in which case we delete when those backups cycle off or as soon as practicable).</p>
+  <p>When you <strong>disconnect</strong> a linked institution, we stop receiving new data from that connection. We remove or refresh stored Plaid-related data on your account in line with disconnection and account settings, subject to short technical delays.</p>
+  <p>Communications you send us (for example, support or privacy requests) may be retained for a limited time for recordkeeping and quality.</p>
+
+  <h2>6. Security</h2>
+  <p>We use technical and organizational measures appropriate to the nature of the Services, including encryption in transit (such as HTTPS/TLS), access controls on our systems, and server-side handling of sensitive tokens (including Plaid-related tokens). No online service is completely secure; we encourage you to use a strong device passcode and keep your app updated.</p>
+  <p>More detail is available in our <a href="/security-overview/">Security overview</a>.</p>
+
+  <h2>7. Your rights and choices</h2>
+  <p>Depending on where you live, privacy laws may give you rights to access, correct, delete, or export personal information, or to object to or restrict certain processing. We will honor applicable requests as required by law.</p>
+  <ul>
+    <li><strong>Access and updates.</strong> You can review and update much of your information directly in the app.</li>
+    <li><strong>Linked accounts.</strong> You can disconnect financial institutions in the app as described in Section 2.2.</li>
+    <li><strong>Notifications.</strong> You can disable push notifications in device or app settings.</li>
+    <li><strong>Marketing.</strong> If we send optional promotional email, we will provide a way to opt out.</li>
+  </ul>
+
+  <h3>How to delete your account</h3>
+  <p>To request deletion of your account and associated personal information, email us at <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a> from the email address associated with your account, with the subject line “Account deletion request,” or use any <strong>in-app account deletion</strong> option we make available. We may verify your identity before processing. Deletion may not remove information we must keep for legal or legitimate business reasons (for example, limited billing or security logs), as described in Section 5.</p>
+
+  <h3>Regional notices</h3>
+  <p><strong>EEA, UK, and Switzerland.</strong> Where the GDPR or similar laws apply, we rely on appropriate legal bases such as <strong>performance of a contract</strong> (providing the Services), <strong>legitimate interests</strong> (security and improvement, balanced against your rights), and <strong>consent</strong> where required (for example, optional linking or certain notifications). You may have the right to lodge a complaint with a supervisory authority.</p>
+  <p><strong>United States (state laws).</strong> Residents of certain states may have additional rights (for example, to know, delete, or opt out of certain processing). To exercise rights, contact <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a>. We do not “sell” personal information or use sensitive data for prohibited purposes as defined in those laws, consistent with Section 3.</p>
+
+  <h2>8. Children’s privacy</h2>
+  <p>The Services are not directed to children under <strong>13</strong>, and we do not knowingly collect personal information from children under 13. If you believe we have collected such information, contact us and we will take steps to delete it.</p>
+
+  <h2>9. International transfers</h2>
+  <p>We are based in the United States. If you use the Services from another country, your information may be processed in the U.S. and in other countries where our providers operate. Those countries may have different data protection laws than your own. Where required, we use appropriate safeguards (such as standard contractual clauses approved by regulators) for transfers of personal data from the EEA, UK, or Switzerland.</p>
+
+  <h2>10. Changes</h2>
+  <p>We may update this Policy from time to time. We will post the updated version on this page and change the “Last updated” date. If changes are material, we will provide additional notice as appropriate (for example, in-app notice or email where we have your address).</p>
+
+  <h2>11. Contact</h2>
+  <p>Questions about this Privacy Policy: <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a></p>
+  <p>Website: <a href="{{ site.url }}">{{ site.url }}</a></p>
 </div>

@@ -78,19 +78,19 @@ People **planning to buy a home** who want structure, education, and a realistic
 | Legitimate consumer use case (financial planning, not lending) | App + marketing copy |
 | Clear explanation of **why** linking exists | `why-link-accounts/`, FAQ |
 | Optional linking + manual alternative | App + site |
-| Published **Privacy Policy** & **Terms** (drafts) | `website/` |
+| Published **Privacy Policy** & **Terms** | `website/` |
 | **Security** narrative | `security-overview/`, `security-privacy/` |
-| **Contact / support** path | `contact/` (after placeholders filled) |
+| **Contact / support** path | `contact/` |
 | Technical accuracy (Plaid + Firebase + Firestore) | `CODEBASE_AND_PLAID_REVIEW.md`, `why-link-accounts` |
 
 ### Partially covered — finish before / during Plaid review
 
 | Gap | Action |
 |-----|--------|
-| **Company identity** on site | Replace `site.json` placeholders (legal name, address, domain, email). |
-| **Privacy Policy** precision | Counsel review; align Plaid data categories with **actual** Plaid products & webhooks. |
-| **Token storage** wording | Confirm Cloud Function + Firestore encryption and document accurately. |
-| **Disconnect / item removal** | If not fully implemented, either implement server-side Plaid `/item/remove` + UI or describe honest limitations. |
+| **Company identity** on site | Keep `site.json` (legal name, address, domain, emails) accurate as the business matures. |
+| **Privacy Policy** precision | Counsel review before relying in disputes; align Plaid data categories with **actual** Plaid products & webhooks. |
+| **Token storage** wording | Keep Privacy Policy / `why-link-accounts` aligned with backend implementation. |
+| **Disconnect / item removal** | Keep app behavior aligned with FAQ and Privacy Policy. |
 | **Support SLA** | Real mailbox + response-time commitment on Contact page. |
 | **Firestore security rules** | Have rules audited; Plaid may not ask, but supports “security practices.” |
 | **App Store listing** | Should mirror site claims (screenshots, description, privacy policy URL). |

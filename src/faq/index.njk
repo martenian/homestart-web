@@ -7,7 +7,7 @@ permalink: /faq/
 
 <header class="page-header container">
   <h1>Frequently asked questions</h1>
-  <p class="lead">Focused on account linking and data—common questions for Plaid production review and for users.</p>
+  <p class="lead">Account linking, Plaid, and your data—common questions from users and partners.</p>
 </header>
 
 <div class="container section section--tight" style="max-width:44rem">
@@ -21,7 +21,7 @@ permalink: /faq/
   </article>
   <article class="faq-item">
     <h3>Does HomeStart see my bank username and password?</h3>
-    <p class="muted">You sign in to your bank through Plaid’s interface. {{ site.name }} does not operate a screen that collects your bank password for Plaid connections. <em>[Align wording with your Plaid product settings and legal review.]</em></p>
+    <p class="muted">You sign in to your bank through Plaid’s interface. {{ site.name }} does not provide a separate screen to collect your bank password for Plaid connections—credentials are handled in Plaid Link as described in Plaid’s consumer disclosures.</p>
   </article>
   <article class="faq-item">
     <h3>What data is stored after I link?</h3>
@@ -29,7 +29,7 @@ permalink: /faq/
   </article>
   <article class="faq-item">
     <h3>Can I disconnect a bank?</h3>
-    <p class="muted">The app includes flows to remove linked institutions and accounts from your {{ site.name }} profile. <em>[If you add a self-service “disconnect” that calls Plaid’s item removal API server-side, describe it here once implemented.]</em></p>
+    <p class="muted">Yes. You can remove linked institutions and accounts from your {{ site.name }} profile in the app. That stops new data from those connections from appearing in your plan; timing may vary slightly while the update processes.</p>
   </article>
   <article class="faq-item">
     <h3>Is HomeStart a lender?</h3>
@@ -37,6 +37,6 @@ permalink: /faq/
   </article>
   <article class="faq-item">
     <h3>Who can I contact about privacy or security?</h3>
-    <p class="muted">Use the email on our <a href="/contact/">Contact</a> page. Replace the placeholder address in <code>src/_data/site.json</code> before launch.</p>
+    <p class="muted">Email <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a> for privacy questions, or <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a> for security vulnerabilities (see our <a href="/security-overview/">Security overview</a>). You can also use the <a href="/contact/">Contact</a> page.</p>
   </article>
 </div>

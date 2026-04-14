@@ -1,49 +1,71 @@
 ---
 layout: layout.njk
 title: "Security overview"
-description: "Security practices for HomeStart — high-level summary for users and reviewers."
+description: "How HomeStart protects your account, data, and optional bank connections. For users, partners, and reviewers."
 permalink: /security-overview/
 ---
 
 <header class="page-header container">
   <h1>Security overview</h1>
-  <p class="lead">High-level summary. This is not a certification or audit report.</p>
+  <p class="lead">How we approach security for {{ site.name }}. This page describes our practices; it is not a third-party audit or certification report.</p>
 </header>
 
 <div class="container prose section section--tight">
-  <div class="callout">
-    Complete this page with your actual controls (SOC reports, pentest cadence, bug bounty, DPO). Plaid and enterprise customers often expect specificity.
-  </div>
+  <h2 id="overview">1. Overview</h2>
+  <p>{{ site.name }} is a planning tool for first-time homebuyers. We take security seriously because the product can involve sensitive financial information when you choose to connect accounts or save personal data.</p>
+  <p>This overview explains, at a high level, how the app is built, how access is controlled, and how optional bank linking through Plaid fits in. For how we use personal data, see our <a href="/privacy-policy/">Privacy Policy</a>.</p>
 
-  <h2>Product surface</h2>
-  <p>{{ site.name }} is a consumer iOS application backed by <strong>Firebase Authentication</strong> and <strong>Cloud Firestore</strong>. Optional bank linking uses <strong>Plaid Link</strong> on device with <strong>server-side token exchange</strong> implemented in <strong>Firebase Cloud Functions</strong> <em>[confirm project name and region]</em>.</p>
+  <h2 id="architecture">2. Product architecture</h2>
+  <p>The {{ site.name }} iOS app talks to Google <strong>Firebase</strong> services, including <strong>Firebase Authentication</strong> for sign-in and <strong>Cloud Firestore</strong> for app data. Server-side logic that must stay private runs in <strong>Firebase Cloud Functions</strong> on Google Cloud infrastructure.</p>
+  <p>When you use optional bank linking, the app launches <strong>Plaid Link</strong> so you can connect financial institutions through Plaid. Exchange of sensitive credentials and institution authorization happens between you and Plaid, not by {{ site.name }} collecting your bank password in our app UI for that flow.</p>
 
-  <h2>Authentication &amp; session</h2>
+  <h2 id="authentication">3. Authentication &amp; access</h2>
   <ul>
-    <li>Primary auth via Firebase (email/password and optional OAuth providers as enabled).</li>
-    <li>Optional <strong>biometric re-lock</strong> on supported devices to reduce casual access on a shared phone.</li>
-    <li>API calls from the app to your Cloud Functions carry a <strong>Firebase ID token</strong> in the <code>Authorization</code> header (see iOS <code>PlaidService</code>).</li>
+    <li>Sign-in is handled by <strong>Firebase Authentication</strong> (for example, email and password and, if enabled, supported sign-in providers).</li>
+    <li>On supported devices you can use <strong>biometric lock</strong> (such as Face ID or Touch ID) in addition to your device passcode to reduce the risk of casual access on a shared phone.</li>
+    <li>Requests from the app to our backend use industry-standard mechanisms so that only authenticated users can invoke protected functions. Session and token handling follow Firebase’s documented patterns.</li>
   </ul>
 
-  <h2>Data in transit &amp; at rest</h2>
+  <h2 id="data-protection">4. Data protection</h2>
   <ul>
-    <li>TLS for app ↔ Firebase / HTTPS endpoints.</li>
-    <li>Firestore security: <em>[state Firestore rules strategy—e.g., user-scoped reads/writes only; cite internal doc]</em>.</li>
-    <li>Plaid access tokens: <em>[confirm whether stored only server-side, encrypted at rest, rotation—must match implementation]</em>.</li>
+    <li><strong>Encryption in transit.</strong> Traffic between the app and our services uses HTTPS (TLS).</li>
+    <li><strong>Encryption at rest.</strong> Data stored in Firebase and Firestore benefits from Google-managed encryption and infrastructure security practices.</li>
+    <li><strong>Access control.</strong> Firestore is configured so users can read and write data in line with their own account where appropriate. Access rules are designed to prevent one user from accessing another user’s data for the same application features.</li>
+    <li><strong>Logging.</strong> We aim to avoid logging secrets, full financial access tokens, or unnecessary sensitive detail in application logs. Operational logging is used for reliability and abuse prevention in line with this goal.</li>
   </ul>
 
-  <h2>Least privilege</h2>
-  <p>Cloud Functions should use <strong>least-privilege service accounts</strong> and avoid logging full tokens or PII <em>[verify logging redaction]</em>.</p>
-
-  <h2>Device &amp; user responsibilities</h2>
+  <h2 id="plaid">5. Plaid integration security</h2>
+  <p>Optional linking to financial institutions is provided through <strong>Plaid Link</strong>, Plaid’s hosted connection experience.</p>
   <ul>
-    <li>Keep iOS updated; use device passcode.</li>
-    <li>Do not jailbreak or sideload modified binaries if you handle sensitive financial planning data.</li>
-    <li>Report suspected unauthorized access to {{ site.supportEmail }}.</li>
+    <li><strong>Credentials stay with Plaid.</strong> When you link an institution, you enter credentials and complete any required steps in Plaid’s interface. {{ site.name }} does not store your bank login password for that flow.</li>
+    <li><strong>Limited data for planning.</strong> After a successful link, we receive from Plaid the data needed for the product (for example, linked accounts and balances) so we can show savings and planning context in the app. We do not ask Plaid for more than we need for those features.</li>
+    <li><strong>Tokens are server-side.</strong> Plaid issues tokens as part of the connection process. Exchange and storage of long-lived Plaid access tokens are handled on the server using <strong>Firebase Cloud Functions</strong>, not embedded in the client app or exposed to other users.</li>
+    <li><strong>Your choice.</strong> Linking a bank is optional. You can use parts of the product without linking accounts, consistent with in-app options and our Privacy Policy.</li>
+  </ul>
+  <p>Plaid’s own security and privacy practices are described in Plaid’s documentation. Use of Plaid is also covered in our <a href="/privacy-policy/">Privacy Policy</a> and, where linked from the app, Plaid’s disclosures.</p>
+
+  <h2 id="infrastructure">6. Infrastructure &amp; access controls</h2>
+  <ul>
+    <li>Backend components run on <strong>Google Cloud</strong> with <strong>Firebase</strong>, which provides managed patching, physical security, and operational controls for the underlying platform.</li>
+    <li>We follow a <strong>least-privilege</strong> approach for service accounts and automated jobs: each component should have only the permissions required for its role.</li>
+    <li>Administrative access to project configuration and data is limited to people who need it for development and operations, and we use secure accounts and strong authentication for that access.</li>
   </ul>
 
-  <h2>Vulnerability reporting</h2>
-  <p><em>[Add security@ email or HackerOne / bug bounty policy.]</em></p>
+  <h2 id="user-responsibilities">7. User responsibilities</h2>
+  <ul>
+    <li>Keep your device’s operating system and the {{ site.name }} app updated.</li>
+    <li>Use a strong device passcode and avoid sharing unlocked access to your phone with people you do not trust.</li>
+    <li>Be cautious of phishing: {{ site.name }} will not ask you for your bank password by email. Institution linking happens through Plaid Link inside the app.</li>
+    <li>For general account questions, contact <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a>.</li>
+  </ul>
+
+  <h2 id="reporting">8. Reporting security issues</h2>
+  <p>If you believe you have found a security vulnerability in {{ site.name }}, please email <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a>. Include a clear description of the issue, steps to reproduce if possible, and your contact information so we can follow up.</p>
+  <p>We appreciate responsible disclosure and will work to investigate credible reports. Please do not access or modify data that does not belong to you, and do not perform testing that could harm other users or our services.</p>
+
+  <h2 id="updates">9. Updates</h2>
+  <p>Security practices evolve as the product grows, as threats change, and as we adopt new controls. We may update this page from time to time. The date below reflects the last revision we note for this document; see the page itself for the current text.</p>
+  <p><em>Last updated: {{ site.updated }}.</em></p>
 
   <p><a href="/privacy-policy/">Privacy Policy →</a></p>
 </div>

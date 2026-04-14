@@ -22,12 +22,12 @@ permalink: /why-link-accounts/
   <h2>What linking is not for</h2>
   <ul>
     <li>We do <strong>not</strong> use Plaid to apply for loans or make credit decisions inside the app.</li>
-    <li>We do <strong>not</strong> sell your data to advertisers for unrelated targeting (describe any exceptions accurately after legal review).</li>
+    <li>We do <strong>not</strong> sell your personal information to advertisers for unrelated ad targeting.</li>
     <li>The app is <strong>not</strong> a bank and does not move money on your behalf through Plaid.</li>
   </ul>
 
   <h2>How the connection works (technical)</h2>
-  <p>After you sign in with Firebase, the app requests a <strong>link token</strong> from {{ site.name }}’s backend (Firebase Cloud Functions). That starts Plaid Link on device. When you complete Link, a <strong>public token</strong> is exchanged server-side; institution and account metadata and balances needed for the feature are stored under <strong>your user ID in Firestore</strong> so the app can show and refresh your home fund. <em>[Confirm retention and token storage with your backend implementation and reflect accurately in the Privacy Policy.]</em></p>
+  <p>After you sign in with Firebase, the app requests a <strong>link token</strong> from {{ site.name }}’s backend (Firebase Cloud Functions). That starts Plaid Link on your device. When you finish Link, a short-lived <strong>public token</strong> is exchanged <strong>on the server</strong> for Plaid access credentials. Long-lived tokens and connection data needed to refresh balances are kept in our secure backend environment—not embedded in the client app. Institution and account metadata and balances used for your plan are stored under <strong>your user ID</strong> in <strong>Firestore</strong> so the app can display and update your home fund. Retention and deletion are described in our <a href="/privacy-policy/">Privacy Policy</a>.</p>
 
   <h2>If you choose not to link</h2>
   <p>You can still use {{ site.name }} with <strong>manual funding entries</strong> and typed-in savings amounts. Linking only automates balance readouts you would otherwise maintain yourself.</p>
