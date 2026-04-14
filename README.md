@@ -74,6 +74,20 @@ Each signup POSTs JSON: `{ email, ts, duplicate }`. You can use **webhook only**
 
 ---
 
+## Brand assets (logos & icons)
+
+Raster files in **`src/images/`** are copied from the iOS app’s asset catalog (same repo machine / manual sync):
+
+| File | Source (iOS) |
+|------|----------------|
+| `logo.png` | `HomeStartApp/Resources/Assets.xcassets/Logo.imageset/Logo@3x.png` (sharpest; `@2x` also fine) |
+| `apple-touch-icon.png` | `AppIcon.appiconset/icon_60pt@3x.png` |
+| `favicon.png` | `AppIcon.appiconset/icon_60pt@2x.png` |
+
+After you change the app logo or icon in Xcode, copy the updated PNGs here and redeploy so web and app stay aligned.
+
+---
+
 ## Site configuration
 
 Edit **`src/_data/site.json`**:

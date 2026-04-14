@@ -6,7 +6,7 @@ description: "HomeStart helps first-time buyers plan savings and cash-to-closeâ€
 
 <header class="site-header" id="site-header" data-header>
   <div class="header-inner">
-    <a class="logo" href="/">{{ site.name }}</a>
+    {% include "brand-logo.njk" %}
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
@@ -32,8 +32,9 @@ description: "HomeStart helps first-time buyers plan savings and cash-to-closeâ€
       <div class="hero-mock" aria-hidden="true">
         <div class="mock-frame">
           <div class="mock-screen">
-            <span>Coming soon</span>
-            <strong>App Store</strong>
+            <img class="mock-app-icon" src="/images/apple-touch-icon.png" alt="" decoding="async">
+            <span class="mock-label">Coming to App Store</span>
+            <img class="mock-wordmark" src="/images/logo.png" alt="" decoding="async">
           </div>
         </div>
       </div>

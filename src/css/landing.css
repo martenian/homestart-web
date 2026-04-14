@@ -95,15 +95,30 @@ body {
 }
 
 .logo {
-  font-weight: 600;
-  font-size: 1.125rem;
-  letter-spacing: -0.02em;
-  color: var(--text);
+  display: flex;
+  align-items: center;
   text-decoration: none;
   transition: opacity 0.15s;
 }
+
+.logo-img {
+  height: 28px;
+  width: auto;
+  max-width: min(160px, 42vw);
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .logo-img {
+    height: 30px;
+    max-width: 180px;
+  }
+}
+
 .logo:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .nav-links {
@@ -297,21 +312,29 @@ body {
   justify-content: center;
   padding: 1.5rem;
   text-align: center;
+  gap: 0.75rem;
 }
 
-.mock-screen span {
-  font-size: 0.7rem;
+.mock-app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.mock-label {
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.mock-screen strong {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
+
+.mock-wordmark {
+  height: 22px;
+  width: auto;
+  max-width: 85%;
+  object-fit: contain;
 }
 
 /* Trust */
