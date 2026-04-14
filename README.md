@@ -1,8 +1,10 @@
 # HomeStart marketing site
 
-Static site generated with **[Eleventy](https://www.11ty.dev/)** for deployment on **Cloudflare Pages**.
+Modern single-page landing + legal/trust pages for the **HomeStart** iOS app. Built with **[Eleventy](https://www.11ty.dev/)**, deployed on **Cloudflare Pages**, with a **waitlist API** via **Cloudflare Pages Functions**.
 
-**Companion iOS app repo:** [github.com/martenian/homestart-ios](https://github.com/martenian/homestart-ios)
+**Companion iOS app:** [github.com/martenian/homestart-ios](https://github.com/martenian/homestart-ios)
+
+---
 
 ## Local development
 
@@ -15,30 +17,79 @@ npm run serve
 
 Open the URL Eleventy prints (usually `http://localhost:8080`).
 
+- **Waitlist form** calls `POST /api/waitlist`. That route only exists after deploy (or when using `wrangler pages dev` with Functions). Locally you’ll see a network error message unless you run the dev server below.
+
+### Local preview with Functions (optional)
+
+```bash
+npm run build
+npx wrangler pages dev _site --kv WAITLIST_KV
+```
+
+Create a dev KV namespace in the Cloudflare dashboard (or CLI), then bind `WAITLIST_KV` when prompted or in `wrangler.toml`.
+
+---
+
 ## Production build
 
 ```bash
 npm run build
 ```
 
-Output: **`_site/`** (repository root)
-
-## Cloudflare Pages
+Output: **`_site/`** (includes `_headers` for Cloudflare).
 
 | Setting | Value |
 |--------|--------|
-| **Root directory** | Repository root (this repo is standalone) |
 | **Build command** | `npm run build` |
-| **Build output directory** | `_site` |
+| **Output directory** | `_site` |
+| **Node** | 18 or 20 |
 
-Environment: Node 18 or 20 recommended.
+---
 
-## Before launch
+## Waitlist (email capture)
 
-1. Edit **`src/_data/site.json`** — real domain, support email, legal entity, address.
-2. Legal review of **`privacy-policy`**, **`terms-of-service`**, **`security-overview`**.
-3. Replace bracketed *\[placeholders\]* inside page templates where noted.
+### 1. Cloudflare KV (recommended)
+
+1. In Cloudflare Dashboard → **Workers & Pages** → **KV** → **Create a namespace** (e.g. `homestart-waitlist`).
+2. Open your **Pages** project → **Settings** → **Functions** → **KV namespace bindings**.
+3. Add binding:
+   - **Variable name:** `WAITLIST_KV`
+   - **KV namespace:** the namespace you created
+4. Redeploy.
+
+Emails are stored as keys `email:{lowercased_email}` with JSON `{ email, ts }`. Duplicates get a friendly JSON response (`You're already on the list.`).
+
+### 2. Webhook (optional, Zapier / Make / etc.)
+
+Add an **environment variable** in Pages → **Settings** → **Environment variables**:
+
+- **Name:** `WAITLIST_WEBHOOK_URL`  
+- **Value:** your HTTPS endpoint URL  
+
+Each signup POSTs JSON: `{ email, ts, duplicate }`. You can use **webhook only** (no KV) if your automation stores rows; duplicate detection will not run without KV.
+
+### 3. Neither binding
+
+`POST /api/waitlist` returns **503** with a setup message; the UI shows a clear error.
+
+---
+
+## Site configuration
+
+Edit **`src/_data/site.json`**:
+
+- `url` — canonical site URL (SEO, sharing)
+- `supportEmail` — shown in footer and contact
+- `companyLegalName`, `address`, `copyrightYear`
+
+---
+
+## Legal pages
+
+Privacy, Terms, Security, FAQ, and Plaid-focused pages live under their routes (e.g. `/privacy-policy/`). Keep copy aligned with the app and run **legal review** before relying on them.
+
+---
 
 ## Content source of truth
 
-Product claims should stay aligned with the iOS app. See **`CODEBASE_AND_PLAID_REVIEW.md`** in this folder.
+Product claims should match the iOS app. See **`CODEBASE_AND_PLAID_REVIEW.md`**.

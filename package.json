@@ -4,7 +4,7 @@
   "private": true,
   "description": "HomeStart marketing site (Cloudflare Pages)",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && node -e \"require('fs').copyFileSync('_headers','_site/_headers')\"",
     "serve": "eleventy --serve",
     "clean": "rm -rf _site"
   },

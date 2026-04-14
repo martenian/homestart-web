@@ -1,109 +1,157 @@
 ---
-layout: layout.njk
+layout: landing-layout.njk
 title: ""
-description: "HomeStart helps you plan and save toward buying a home. Optional bank linking via Plaid keeps your home fund grounded in real balances—not guesswork."
-bodyClass: page-home
+description: "HomeStart helps first-time buyers plan savings and cash-to-close—optional bank linking, not a lender. Join the waitlist."
 ---
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <p class="badge">Homebuyer preparation</p>
-      <h1>Prepare to buy a home with a plan you can actually follow.</h1>
-      <p class="lead">{{ site.name }} helps first-time and early-stage buyers build savings, stress-test affordability, and move through a guided roadmap—not a pile of disconnected calculators.</p>
-      <div class="hero-actions">
-        <a class="btn btn--primary" href="/how-it-works/">See how it works</a>
-        <a class="btn btn--ghost" href="/why-link-accounts/">Why link accounts</a>
-      </div>
-      <p class="muted" style="margin-top:1.5rem;">Not a mortgage lender, not a home listings app. Planning and education only.</p>
-    </div>
-    <aside class="hero-card" aria-label="What the app focuses on">
-      <h3>In the app today</h3>
-      <ul class="hero-list">
-        <li><span>Roadmap &amp; milestones</span></li>
-        <li><span>Savings &amp; cash-to-close</span></li>
-        <li><span>Affordability signals</span></li>
-        <li><span>Optional Plaid linking</span></li>
-        <li><span>Manual home fund entries</span></li>
+<header class="site-header" id="site-header" data-header>
+  <div class="header-inner">
+    <a class="logo" href="/">{{ site.name }}</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
       </ul>
-    </aside>
+    </nav>
   </div>
-</section>
+</header>
 
-<section class="section section--surface">
-  <div class="container">
-    <div class="section-heading">
-      <h2>How it works</h2>
-      <p class="lead">You start with your real situation—savings, income, rent, debts—and {{ site.name }} helps you connect that to a home target, timeline, and the full cash picture (down payment, closing, reserves, and moving).</p>
+<main id="main">
+  <section class="section hero" aria-labelledby="hero-heading">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-heading">Your home plan, finally in one place.</h1>
+        <p class="hero-sub">HomeStart is a planning app for first-time buyers—savings targets, cash-to-close clarity, and a guided path. Not a lender. Not listings.</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#waitlist">Join the waitlist</a>
+          <a class="btn btn--secondary" href="#how-it-works">Learn more</a>
+        </div>
+        <p class="hero-note">Optional bank linking via Plaid to keep balances in sync—only if you want it.</p>
+      </div>
+      <div class="hero-mock" aria-hidden="true">
+        <div class="mock-frame">
+          <div class="mock-screen">
+            <span>Coming soon</span>
+            <strong>App Store</strong>
+          </div>
+        </div>
+      </div>
     </div>
-    <ol class="steps">
-      <li><strong>Create your account</strong> and sign in securely. The iOS app supports email sign-in and other providers configured in the app.</li>
-      <li><strong>Set your foundation</strong>—what you’ve saved, what you can save monthly, and how a future housing payment might fit next to rent and debts.</li>
-      <li><strong>Shape your target</strong> with a draft home price or a monthly housing budget, then refine with taxes, insurance, and (when applicable) planning estimates like mortgage insurance below 20% down.</li>
-      <li><strong>Optionally link accounts</strong> through Plaid so counted balances stay close to reality, or add manual “home fund” amounts if you prefer not to link.</li>
-      <li><strong>Follow the roadmap</strong> for bite-sized education and the next best preparation step—without turning everything into one giant form.</li>
-    </ol>
-    <p class="muted" style="margin-top:1.5rem;">Features vary by app version; this page reflects the current product direction in the shipped app.</p>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-heading">
-      <h2>What you can plan for</h2>
-      <p class="lead">The planner is built around the cash and monthly payment reality of buying—not just a single “down payment” number.</p>
+  <section class="section section--tight trust" aria-label="Trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <strong>Built for first-time buyers</strong>
+        Education and preparation—not a mortgage application.
+      </div>
+      <div class="trust-item">
+        <strong>Planning tool only</strong>
+        Estimates are illustrative. Real terms come from your lender.
+      </div>
+      <div class="trust-item">
+        <strong>Your data, your choice</strong>
+        Link accounts with Plaid or track savings manually.
+      </div>
     </div>
-    <div class="grid-3">
-      <article class="card">
-        <h3>Cash-to-close picture</h3>
-        <p class="muted">Down payment, closing costs, post-close reserves, and moving/setup budget roll into a total cash target so savings goals match what closing actually tends to require.</p>
-      </article>
-      <article class="card">
-        <h3>Monthly housing estimate</h3>
-        <p class="muted">Principal and interest plus taxes and insurance—and, when your down payment assumption is under 20%, an illustrative conventional-style PMI estimate so monthly totals stay honest for planning.</p>
-      </article>
-      <article class="card">
-        <h3>Home fund allocation</h3>
-        <p class="muted">Linked or manual funds can be tagged toward down payment, closing, reserves, or general home savings—including split allocations when one account serves more than one purpose.</p>
-      </article>
-      <article class="card">
-        <h3>Roadmap &amp; learning</h3>
-        <p class="muted">Stages break the journey into milestones and modules so preparation, education, and inputs stay tied together instead of scattered across screens.</p>
-      </article>
-      <article class="card">
-        <h3>Market context (where enabled)</h3>
-        <p class="muted">The app can incorporate housing-market and benchmark context to help you sanity-check a target—not to replace professional advice or live lender pricing.</p>
-      </article>
-      <article class="card">
-        <h3>Optional rate context</h3>
-        <p class="muted">When a data key is configured, national mortgage survey averages (via FRED) can inform exploration screens. This is context only—not a rate lock or lender offer.</p>
-      </article>
-    </div>
-  </div>
-</section>
+    <p class="trust-placeholder section" style="margin-bottom:0;max-width:720px;margin-left:auto;margin-right:auto;">Room for quotes or stats when you have them—early access users, press, or partner logos.</p>
+  </section>
 
-<section class="section section--surface">
-  <div class="container">
-    <div class="section-heading">
-      <h2>Security &amp; trust</h2>
-      <p class="lead">We describe only what the app is built to do today—no invented certifications or guarantees.</p>
+  <section class="section" id="features" aria-labelledby="features-heading">
+    <p class="section-label">Features</p>
+    <h2 id="features-heading">Everything you need to prepare</h2>
+    <p class="section-intro">Short, focused tools—so you always know what to do next.</p>
+    <div class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true"></div>
+        <h3>Savings planning</h3>
+        <p>Set pace toward down payment, closing, reserves, and moving costs in one cash-to-close view.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true"></div>
+        <h3>Cash-to-close guidance</h3>
+        <p>See how down payment, closing costs, reserves, and setup cash add up—not just the down payment.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true"></div>
+        <h3>Affordability planning</h3>
+        <p>Stress-test monthly housing next to income and debts—planning context, not underwriting.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true"></div>
+        <h3>Optional account linking</h3>
+        <p>Connect banks with Plaid to reflect real balances—or enter amounts manually.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true"></div>
+        <h3>Guided roadmap</h3>
+        <p>Milestones and learning so preparation stays step-by-step, not overwhelming.</p>
+      </article>
     </div>
-    <div class="trust-strip">
-      <span><strong>Sign-in:</strong> Firebase Authentication; optional device biometrics for returning sessions.</span>
-      <span><strong>Linking:</strong> Plaid Link (industry-standard bank connection flow).</span>
-      <span><strong>Storage:</strong> Plan and linked metadata stored under your user account in Firebase services.</span>
-    </div>
-    <p style="margin-top:1.25rem;"><a class="btn btn--ghost" href="/security-overview/">Read security overview</a>
-      <a class="btn btn--ghost" href="/privacy-policy/">Privacy Policy</a></p>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta-band">
-      <h2>Questions before you link accounts?</h2>
-      <p>Read why we ask for connections, what Plaid sees, and how to contact us—then decide what you’re comfortable sharing.</p>
-      <a class="btn btn--primary" href="/faq/">Read the FAQ</a>
+  <section class="section" id="how-it-works" aria-labelledby="how-heading">
+    <p class="section-label">How it works</p>
+    <h2 id="how-heading">Three steps</h2>
+    <p class="section-intro">Start simple. Refine as you go.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Start with your finances</h3>
+        <p>Income, rent, debts, and what you already have saved—so the plan matches reality.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Set your home target</h3>
+        <p>Draft a price or monthly payment comfort, then layer taxes, insurance, and timing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Track progress over time</h3>
+        <p>Update savings, link accounts if you want, and follow the roadmap to launch day.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="section" id="waitlist" aria-labelledby="waitlist-heading">
+    <p class="section-label">Early access</p>
+    <div class="waitlist">
+      <h2 id="waitlist-heading">Get early access</h2>
+      <p>Be first on the App Store list. No spam—launch updates only.</p>
+      <form class="waitlist-form" id="waitlist-form" novalidate>
+        <div class="field-wrap">
+          <label class="visually-hidden" for="waitlist-email">Email address</label>
+          <input type="email" id="waitlist-email" name="email" autocomplete="email" placeholder="you@email.com" required inputmode="email">
+        </div>
+        <button type="submit" class="btn btn--primary btn--submit" id="waitlist-submit">Join waitlist</button>
+      </form>
+      <div class="waitlist-status" id="waitlist-status" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">{{ site.name }}</span>
+    <ul class="footer-links">
+      <li><a href="/privacy-policy/">Privacy</a></li>
+      <li><a href="/terms-of-service/">Terms</a></li>
+      <li><a href="/security-overview/">Security</a></li>
+      <li><a href="mailto:{{ site.supportEmail }}">Contact</a></li>
+    </ul>
+    <p class="footer-meta">© {{ site.copyrightYear }} {{ site.companyLegalName }}</p>
   </div>
-</section>
+</footer>
+
+<script>
+  (function () {
+    var h = document.getElementById("site-header");
+    if (!h) return;
+    function tick() {
+      h.classList.toggle("is-scrolled", window.scrollY > 8);
+    }
+    tick();
+    window.addEventListener("scroll", tick, { passive: true });
+  })();
+</script>
