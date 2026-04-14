@@ -7,6 +7,7 @@
 
   var img = root.querySelector(".app-preview-img");
   var panel = root.querySelector("#app-preview-panel");
+  var explainEl = root.querySelector(".showcase__explain");
   var tabs = Array.prototype.slice.call(root.querySelectorAll('.preview-tab[role="tab"]'));
   if (!img || !tabs.length) return;
 
@@ -18,8 +19,10 @@
     });
     var src = tab.getAttribute("data-preview-src");
     var alt = tab.getAttribute("data-preview-alt");
+    var explain = tab.getAttribute("data-preview-explain");
     if (src) img.src = src;
     if (alt) img.alt = alt;
+    if (explainEl && explain) explainEl.textContent = explain;
     if (panel && tab.id) panel.setAttribute("aria-labelledby", tab.id);
   }
 
