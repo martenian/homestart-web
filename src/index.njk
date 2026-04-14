@@ -1,7 +1,7 @@
 ---
 layout: landing-layout.njk
 title: ""
-description: "HomeStart — early access. See the full cash you’ll need to buy, track savings, test affordability, and plan with clarity. Not a lender. Join the waitlist."
+description: "HomeStart — early access. Total cash to close, not just the down payment. Save with a real target, stress-test a payment, walk into the lender prepared. Not a lender. Join the waitlist."
 ---
 
 {% from "icons-features.njk" import icon %}
@@ -11,8 +11,8 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
     {% include "brand-logo.njk" %}
     <nav aria-label="Primary">
       <ul class="nav-links">
-        <li><a href="#showcase">Preview</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#showcase">Screens</a></li>
+        <li><a href="#features">Inside</a></li>
         <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
       </ul>
     </nav>
@@ -26,33 +26,34 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
         <div class="hero-copy">
           <p class="hero-eyebrow">Early access · iOS in development</p>
           <h1 id="hero-heading">Know your real cash to buy a home.</h1>
-          <p class="hero-sub">See the full cash you’ll need to buy—not just the down payment. Track savings against it, test what you can afford, and move forward with a clear plan.</p>
+          <p class="hero-sub">One number for the full cash stack—not just the down payment. See what’s left to save and pressure-test a monthly payment before you apply.</p>
           <div class="hero-actions">
             <a class="btn btn--primary btn--hero" href="#waitlist">Join the waitlist</a>
             <a class="btn btn--secondary" href="#showcase">See preview</a>
           </div>
+          <p class="hero-trust">Built for first-time buyers. We don’t lend—we help you get ready.</p>
           <p class="hero-note">We’ll email you at App Store launch—nothing else.</p>
         </div>
         <p class="hero-hook" id="hero-hook">The down payment isn’t the whole number. The total cash is.</p>
-        <p class="hero-emotional">Buying your first home shouldn’t mean guessing with your biggest savings goal.</p>
+        <p class="hero-emotional">Your biggest savings goal deserves a number—not a gut feeling.</p>
       </div>
     </div>
   </section>
 
   <section class="section section--insight section--band-muted" id="why-homestart" aria-labelledby="insight-heading">
     <div class="insight-inner">
-      <p class="section-label">Why this exists</p>
-      <h2 id="insight-heading">Closing, reserves, and move-in money add up—usually before people expect.</h2>
-      <p class="insight-tight"><strong>{{ site.name }}</strong> is one number for everything you need at the table—plus savings progress and affordability context before you pick up the phone with a lender.</p>
+      <p class="section-label">The wire is bigger than the down payment</p>
+      <h2 id="insight-heading">Closing costs, cash to hold in reserve, movers, first mortgage payment—they land on the same calendar as your down payment.</h2>
+      <p class="insight-tight"><strong>{{ site.name }}</strong> rolls them into one total you can save toward, with your balance tracked against it. A future payment sits next to rent and real bills—so the lender isn’t your first reality check.</p>
     </div>
   </section>
 
   <section class="section section--preview" id="showcase" aria-labelledby="preview-heading">
     <div class="preview-shell">
       <header class="preview-header">
-        <p class="section-label">See the plan in one view</p>
-        <h2 id="preview-heading" class="preview-tagline">Your target price, total cash goal, savings gap, and payment estimate—together in one place.</h2>
-        <p class="preview-sub">Real iOS screens. Sample data. Final polish underway.</p>
+        <p class="section-label">On your phone, in one scroll</p>
+        <h2 id="preview-heading" class="preview-tagline">Target price, full cash to close, what you still need to save, and a monthly payment read—together.</h2>
+        <p class="preview-sub">Real iOS UI. Sample numbers. Final polish still landing.</p>
       </header>
       <div class="preview-stage">
         <figure class="app-showcase app-showcase--hero" data-app-preview>
@@ -70,26 +71,26 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
             </div>
           </div>
           <div class="preview-tabs" role="tablist" aria-label="Switch app preview screen">
-            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-plan" aria-selected="true" aria-controls="app-preview-panel" data-preview-src="/images/preview-plan.jpg" data-preview-alt="HomeStart plan overview: target home, closing-cash progress, estimated payment, and savings summary. Sample data." data-preview-explain="Plan — your target home, closing-cash progress, and monthly payment context on one screen.">Plan</button>
-            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-numbers" aria-selected="false" aria-controls="app-preview-panel" data-preview-src="/images/preview-numbers.jpg" data-preview-alt="HomeStart numbers view: readiness score and savings, cash-to-close, and payment comfort. Sample data." data-preview-explain="Numbers — readiness-style scores for savings pace, cash to close, and how comfortable a future payment looks.">Numbers</button>
-            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-accounts" aria-selected="false" aria-controls="app-preview-panel" data-preview-src="/images/preview-accounts.jpg" data-preview-alt="HomeStart accounts view: linked home fund, progress toward goal, and cash breakdown by purpose. Sample data." data-preview-explain="Accounts — linked home fund total, progress toward your cash goal, and savings grouped by purpose (down payment, closing, reserves).">Accounts</button>
+            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-plan" aria-selected="true" aria-controls="app-preview-panel" data-preview-src="/images/preview-plan.jpg" data-preview-alt="HomeStart plan overview: target home, closing-cash progress, estimated payment, and savings summary. Sample data." data-preview-explain="Plan — home price, cash-to-close progress, and estimated payment in one glance.">Plan</button>
+            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-numbers" aria-selected="false" aria-controls="app-preview-panel" data-preview-src="/images/preview-numbers.jpg" data-preview-alt="HomeStart numbers view: readiness score and savings, cash-to-close, and payment comfort. Sample data." data-preview-explain="Numbers — how fast you’re saving, how close cash-to-close is, and whether the payment feels survivable.">Numbers</button>
+            <button type="button" class="preview-tab" role="tab" id="app-preview-tab-accounts" aria-selected="false" aria-controls="app-preview-panel" data-preview-src="/images/preview-accounts.jpg" data-preview-alt="HomeStart accounts view: linked home fund, progress toward goal, and cash breakdown by purpose. Sample data." data-preview-explain="Accounts — home fund total, distance to goal, and cash split by down payment, closing, and reserves.">Accounts</button>
           </div>
-          <p class="showcase__explain" aria-live="polite">Plan — your target home, closing-cash progress, and monthly payment context on one screen.</p>
+          <p class="showcase__explain" aria-live="polite">Plan — home price, cash-to-close progress, and estimated payment in one glance.</p>
         </figure>
       </div>
     </div>
   </section>
 
   <section class="section section--trust section--band-surface" id="trust" aria-labelledby="trust-heading">
-    <p class="section-label" id="trust-heading">Built for planning, not pressure</p>
+    <p class="section-label" id="trust-heading">No loan desk here</p>
     <ul class="trust-grid" role="list">
       <li class="trust-pill">
         <span class="trust-pill__label">Planning, not lending</span>
-        <span class="trust-pill__text">HomeStart helps you prepare. Real loan terms still come from your lender.</span>
+        <span class="trust-pill__text">We’re prep work—rate quotes, approvals, and paperwork stay with your lender.</span>
       </li>
       <li class="trust-pill">
-        <span class="trust-pill__label">Linking is optional</span>
-        <span class="trust-pill__text">Use Plaid for live balances, or keep everything manual.</span>
+        <span class="trust-pill__label">Plaid is optional</span>
+        <span class="trust-pill__text">Connect accounts for live balances, or type numbers in by hand.</span>
       </li>
       <li class="trust-pill">
         <span class="trust-pill__label">Your data, your choice</span>
@@ -99,35 +100,35 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
   </section>
 
   <section class="section section--features section--band-muted" id="features" aria-labelledby="features-heading">
-    <header class="section-header">
-      <p class="section-label">What changes with HomeStart</p>
-      <h2 id="features-heading">Clarity before the lender call</h2>
+      <header class="section-header">
+      <p class="section-label">What you’ll open the app for</p>
+      <h2 id="features-heading">Walk in knowing your number</h2>
     </header>
     <div class="features-grid">
       <article class="feature-card">
         <div class="feature-icon-wrap" aria-hidden="true">{{ icon("cash") }}</div>
         <h3>Know the number first</h3>
-        <p>Down payment, closing, reserves, and move-in cash—rolled into one clear target.</p>
+        <p>Down payment, closing wire, reserves, move-in cash—one target, not four tabs.</p>
       </article>
       <article class="feature-card">
         <div class="feature-icon-wrap" aria-hidden="true">{{ icon("savings") }}</div>
-        <h3>See your gap close</h3>
-        <p>Track savings against your total goal as you move toward buying.</p>
+        <h3>See the gap shrink</h3>
+        <p>Your savings vs. the full stack—updated whenever you add or spend.</p>
       </article>
       <article class="feature-card">
         <div class="feature-icon-wrap" aria-hidden="true">{{ icon("afford") }}</div>
-        <h3>Know what feels affordable</h3>
-        <p>Put a future payment next to rent, income, and debts before you commit.</p>
+        <h3>Stress-test the payment</h3>
+        <p>A future mortgage next to rent, income, and what you already owe—before you lock anything in.</p>
       </article>
       <article class="feature-card">
         <div class="feature-icon-wrap feature-icon-wrap--accent" aria-hidden="true">{{ icon("link") }}</div>
-        <h3>Link accounts—or skip it</h3>
-        <p>Keep balances updated automatically, or type them in yourself.</p>
+        <h3>Link—or don’t</h3>
+        <p>Plaid for live balances, or enter everything yourself. Same math either way.</p>
       </article>
       <article class="feature-card feature-card--wide">
         <div class="feature-icon-wrap" aria-hidden="true">{{ icon("roadmap") }}</div>
-        <h3>Know the next step</h3>
-        <p>Short guidance and ordered milestones so progress feels manageable.</p>
+        <h3>Next step, spelled out</h3>
+        <p>Ordered milestones and short cues—so you’re not piecing the path together from scattered advice.</p>
       </article>
     </div>
   </section>
@@ -135,8 +136,8 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
   <section class="section section--cta-mid" aria-labelledby="cta-mid-heading">
     <div class="cta-mid">
       <div class="cta-mid__copy">
-        <h2 id="cta-mid-heading">App Store launch is next</h2>
-        <p>Join the waitlist and we’ll send the download link when HomeStart is live.</p>
+        <h2 id="cta-mid-heading">App Store is the next beat</h2>
+        <p>Waitlist gets the download link the day we ship—no drip campaign, no noise.</p>
       </div>
       <a class="btn btn--primary btn--lg btn--cta-solid" href="#waitlist">Join the waitlist</a>
     </div>
@@ -144,7 +145,7 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
 
   <section class="section section--how section--band-surface" id="how-it-works" aria-labelledby="how-heading">
     <header class="section-header">
-      <p class="section-label" id="how-heading">Three steps to a clearer plan</p>
+      <p class="section-label" id="how-heading">How it comes together</p>
       <h2 class="visually-hidden">How HomeStart works</h2>
     </header>
     <div class="steps">
@@ -155,34 +156,34 @@ description: "HomeStart — early access. See the full cash you’ll need to buy
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h3>Set a real target</h3>
-        <p>Choose a home price or payment range, then account for taxes, insurance, timing, and cash to close.</p>
+        <h3>Name a real target</h3>
+        <p>Pick a price band or monthly max, then fold in taxes, insurance, timing, and the full cash to close.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Track until you’re ready</h3>
-        <p>Update savings, link accounts if you want, and follow the roadmap forward.</p>
+        <h3>Close the gap</h3>
+        <p>Refresh savings when life shifts. Link with Plaid—or skip it. The roadmap stays in front of you.</p>
       </div>
     </div>
   </section>
 
   <section class="section section--audience section--band-muted" id="audience" aria-labelledby="audience-heading">
     <div class="audience-inner">
-      <p class="section-label" id="audience-heading">Built for your first home</p>
-      <p class="audience-lead">Not investors. Not flippers. Not another spreadsheet.</p>
-      <p class="audience-outro">Just a clearer path to your first set of keys.</p>
+      <p class="section-label" id="audience-heading">Your first set of keys—not a side hustle</p>
+      <p class="audience-lead">Not portfolio buyers. Not flippers. Not another spreadsheet you’ll abandon.</p>
+      <p class="audience-outro">One lane toward the front door you’re actually going to unlock.</p>
     </div>
   </section>
 
   <section class="section section--waitlist" id="waitlist" aria-labelledby="waitlist-heading">
     <div class="waitlist waitlist--premium">
-      <p class="waitlist__badge">Get the App Store link first</p>
+      <p class="waitlist__badge">First in line for the App Store link</p>
       <h2 id="waitlist-heading">Reserve your spot</h2>
-      <p class="waitlist__lead">Join the first wave and we’ll email you when HomeStart launches. Nothing extra.</p>
+      <p class="waitlist__lead">We email you when the app goes live. That’s the whole pitch.</p>
       <ul class="waitlist__bullets" role="list">
-        <li>App Store link at launch</li>
-        <li>Occasional milestone notes</li>
-        <li>Unsubscribe anytime</li>
+        <li>Download link on launch day</li>
+        <li>Rare, short updates if we slip a milestone</li>
+        <li>One-click unsubscribe</li>
       </ul>
       <form class="waitlist-form waitlist-form--premium" id="waitlist-form" novalidate>
         <div class="field-wrap">
