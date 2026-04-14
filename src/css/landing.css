@@ -1164,22 +1164,22 @@ body {
   margin-bottom: 2.25rem;
 }
 
-/* Forward-looking credibility (not press coverage) */
+/* Forward-looking credibility — soft grayscale grid (press-wall style, not “as seen in”) */
 .section--credibility {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 4.75rem;
+  padding-bottom: 4.75rem;
   border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 @media (min-width: 768px) {
   .section--credibility {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 5.25rem;
+    padding-bottom: 5.25rem;
   }
 }
 
 .credibility {
-  max-width: 36rem;
+  max-width: 40rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -1200,22 +1200,46 @@ body {
   color: var(--text-secondary);
 }
 
+.cred-board {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(100%, 26rem);
+  padding: 2.25rem 1.5rem 2.5rem;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+@media (min-width: 480px) {
+  .cred-board {
+    max-width: 28rem;
+    padding: 2.5rem 2rem 2.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .cred-board {
+    max-width: 32rem;
+    padding: 2.75rem 2.5rem 3rem;
+  }
+}
+
 .cred-platforms {
   list-style: none;
-  margin: 2rem 0 0;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem 1.75rem;
   align-items: center;
-  gap: 1.25rem 1.75rem;
-  row-gap: 1rem;
+  justify-items: center;
 }
 
 @media (min-width: 640px) {
   .cred-platforms {
-    gap: 1.35rem 2.25rem;
-    margin-top: 2.25rem;
+    gap: 2.75rem 2.25rem;
   }
 }
 
@@ -1224,35 +1248,51 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 0.25rem 0.5rem;
+  min-height: 2.75rem;
   pointer-events: none;
   user-select: none;
 }
 
 .cred-logo-img {
   display: block;
-  height: 22px;
+  height: 28px;
   width: auto;
-  max-width: min(26vw, 112px);
+  max-width: min(36vw, 140px);
   object-fit: contain;
   object-position: center;
-  opacity: 0.88;
-  filter: grayscale(1) contrast(0.92);
+  opacity: 0.72;
+  filter: grayscale(1) contrast(0.88) brightness(1.05);
 }
 
 .cred-logo-img--word {
-  height: 18px;
-  max-width: min(32vw, 130px);
+  height: 22px;
+  max-width: min(38vw, 150px);
+}
+
+.cred-logo-img--wsj {
+  height: 34px;
+  max-width: min(42vw, 160px);
 }
 
 @media (min-width: 640px) {
   .cred-logo-img {
-    height: 24px;
-    max-width: 120px;
+    height: 32px;
+    max-width: 150px;
+    opacity: 0.7;
   }
 
   .cred-logo-img--word {
-    height: 20px;
-    max-width: 140px;
+    height: 24px;
+    max-width: 160px;
+  }
+
+  .cred-logo-img--wsj {
+    height: 38px;
+    max-width: 170px;
+  }
+
+  .cred-logo-cell {
+    min-height: 3rem;
   }
 }
