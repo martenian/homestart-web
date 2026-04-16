@@ -93,3 +93,162 @@
   color: var(--text);
   margin: 0 0 0.5rem;
 }
+
+.contact-page {
+  padding-top: 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+    align-items: start;
+  }
+}
+
+.contact-sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.25rem;
+  box-shadow: 0 14px 32px -24px rgba(28, 40, 52, 0.28);
+}
+
+.contact-card--form {
+  padding: 1.5rem;
+}
+
+.contact-card__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-ink);
+}
+
+.contact-card h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.contact-card p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.contact-card__header {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form__row {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .contact-form__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.contact-form input:disabled,
+.contact-form select:disabled,
+.contact-form textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-form__actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contact-form__note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.contact-status {
+  min-height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.contact-status[data-state="success"] {
+  color: var(--success-text);
+}
+
+.contact-status[data-state="error"] {
+  color: var(--error-text);
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.contact-list span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

@@ -1,27 +1,104 @@
 ---
 layout: layout.njk
-title: "Contact & support"
-description: "Contact HomeStart for support, privacy requests, and Plaid-related questions."
+title: "Contact us"
+description: "Contact HomeStart for product support, privacy requests, partnership questions, or security reports."
 permalink: /contact/
 ---
 
 <header class="page-header container">
-  <h1>Contact &amp; support</h1>
-  <p class="lead">Reach the team for product questions, privacy requests, or security reports.</p>
+  <h1>Contact us</h1>
+  <p class="lead">Reach the HomeStart team for support, partnership questions, privacy requests, or security concerns.</p>
 </header>
 
-<div class="container prose section section--tight">
-  <h2>Email</h2>
-  <p><strong>General &amp; product:</strong> <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a></p>
-  <p><strong>Privacy &amp; data requests:</strong> <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a></p>
-  <p><strong>Security vulnerabilities:</strong> <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a> (see <a href="/security-overview/">Security overview</a>)</p>
+<section class="container contact-page section section--tight">
+  <div class="contact-grid">
+    <div class="contact-card contact-card--form">
+      <div class="contact-card__header">
+        <p class="contact-card__eyebrow">Send a message</p>
+        <h2>Tell us what you need</h2>
+        <p>Share a few details and we’ll route your message to the right person on the team.</p>
+      </div>
 
-  <h2>Mailing address</h2>
-  <p>{{ site.companyLegalName }}<br>{{ site.address }}</p>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="contact-form__row">
+          <div class="field-wrap">
+            <label for="contact-name">Full name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required>
+          </div>
 
-  <h2>Response time</h2>
-  <p class="muted">We aim to acknowledge messages within two business days. Complex requests may take longer.</p>
+          <div class="field-wrap">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
 
-  <h2>Bug reports</h2>
-  <p class="muted">Include device model, iOS version, and steps to reproduce. Do not send bank passwords or full card numbers by email.</p>
-</div>
+        <div class="contact-form__row">
+          <div class="field-wrap">
+            <label for="contact-company">Company or institution <span class="muted">(optional)</span></label>
+            <input id="contact-company" name="company" type="text" autocomplete="organization">
+          </div>
+
+          <div class="field-wrap">
+            <label for="contact-subject">What is this about?</label>
+            <select id="contact-subject" name="subject" required>
+              <option value="">Select one</option>
+              <option value="product-support">Product support</option>
+              <option value="partnerships">Partnerships / integrations</option>
+              <option value="privacy">Privacy or data request</option>
+              <option value="security">Security question</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-wrap">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="7" maxlength="4000" required></textarea>
+        </div>
+
+        <div class="contact-form__actions">
+          <button id="contact-submit" class="btn btn--primary btn--submit" type="submit">Send message</button>
+          <p class="contact-form__note">Do not include bank passwords, security codes, or full card numbers.</p>
+        </div>
+
+        <p id="contact-status" class="contact-status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <aside class="contact-sidebar">
+      <div class="contact-card">
+        <p class="contact-card__eyebrow">Direct contact</p>
+        <h2>Email us</h2>
+        <ul class="contact-list">
+          <li>
+            <span>General &amp; product</span>
+            <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a>
+          </li>
+          <li>
+            <span>Privacy &amp; data requests</span>
+            <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a>
+          </li>
+          <li>
+            <span>Security reports</span>
+            <a href="mailto:{{ site.securityEmail }}">{{ site.securityEmail }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <p class="contact-card__eyebrow">What to expect</p>
+        <h2>Response time</h2>
+        <p>We aim to acknowledge messages within two business days. Complex requests may take longer.</p>
+        <p class="muted">Official contact URL: <a href="{{ site.url }}/contact/">{{ site.url }}/contact/</a></p>
+      </div>
+
+      <div class="contact-card">
+        <p class="contact-card__eyebrow">Mailing address</p>
+        <h2>{{ site.companyLegalName }}</h2>
+        <p>{{ site.address }}</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script type="module" src="/js/contact.js"></script>
