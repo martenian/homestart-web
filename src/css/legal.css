@@ -233,12 +233,34 @@
 .contact-form textarea {
   width: 100%;
   padding: 0.85rem 1rem;
-  font: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.35;
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--bg);
   transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.contact-form input,
+.contact-form select {
+  min-height: 52px;
+}
+
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.75rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 2px),
+    calc(100% - 14px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
 }
 
 .contact-form textarea {
